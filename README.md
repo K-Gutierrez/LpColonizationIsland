@@ -4,7 +4,7 @@
 
 1. **Paired End Short-Reads Genome assembly**
 
-    a) Trimming the raw data with Trim-galore 
+a) Trimming the raw data with Trim-galore 
 
 <p>conda create --name trimgalore<br>
 <p>conda install -c bioconda trim-galore<br>
