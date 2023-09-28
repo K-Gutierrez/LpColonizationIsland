@@ -22,10 +22,10 @@ mkdir trimgalore-output
 trim_galore -q 28  -o trimgalore-output --path_to_cutadapt My/path/cutadapt --paired --clip_R1 15 --clip_R2 15 --fastqc --dont_gzip *_1.fastq *_2.fastq
 ```
 
-c) Genome assembly 
+c) Genome assembly using Unicycler
 
 ```
-spades.py -1 sample_R1.fastq -2 sample_R2.fastq -o output_directory
+unicycler -1 short_reads_1-trimmed.fastq.gz -2 short_reads_2-trimmed.fastq.gz -o output_dir
 ```
 
 
