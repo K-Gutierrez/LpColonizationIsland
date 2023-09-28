@@ -9,10 +9,11 @@
 ```
 conda create --name trimgalore
 conda install -c bioconda trim-galore
-<p>conda install -c "bioconda/label/cf201901" trim-galore<br>
-```
+conda install -c "bioconda/label/cf201901" trim-galore
 
 conda activate trimgalore 
+```
+
 
 - Trimming the raw data with Trim-galore
 - 
