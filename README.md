@@ -4,14 +4,17 @@
 
 1. **Paired End Short-Reads Genome assembly**
 
-a) Installing trim-galore 
+a) Installing trim-galore and Unicycler
 
 ```
-conda create --name trimgalore
+conda create --name ShortReadsAssembly
 conda install -c bioconda trim-galore
 conda install -c "bioconda/label/cf201901" trim-galore
 
-conda activate trimgalore 
+conda install -c bioconda unicycler
+conda install -c "bioconda/label/cf201901" unicycle
+
+conda activate ShortReadsAssembly
 ```
 
 b) Trimming the raw data with Trim-galore
