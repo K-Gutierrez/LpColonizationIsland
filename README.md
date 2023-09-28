@@ -4,9 +4,20 @@
 
 1. **Paired End Short-Reads Genome assembly**
 
-    a) Trimming the raw data and visualizing them with FastQC
+    a) Trimming the raw data with Trim-galore 
 
-$
+conda create --name trimgalore 
+conda install -c bioconda trim-galore
+conda install -c "bioconda/label/cf201901" trim-galore
+conda activate trimgalore 
+
+mkdir trimgalore-output 
+
+trim_galore -q 28  -o trimgalore-output --path_to_cutadapt My/path/cutadapt --paired --clip_R1 15 --clip_R2 15 --fastqc --dont_gzip *_1.fastq *_2.fastq
+
+
+
+
 
 
 
