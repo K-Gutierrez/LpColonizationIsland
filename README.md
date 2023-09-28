@@ -4,7 +4,7 @@
 
 1. **Paired End Short-Reads Genome assembly**
 
--Installing trim-galore 
+a) Installing trim-galore 
 
 ```
 conda create --name trimgalore
@@ -14,12 +14,13 @@ conda install -c "bioconda/label/cf201901" trim-galore
 conda activate trimgalore 
 ```
 
+b) Trimming the raw data with Trim-galore
 
-- Trimming the raw data with Trim-galore
-- 
+```
 mkdir trimgalore-output 
 
 trim_galore -q 28  -o trimgalore-output --path_to_cutadapt My/path/cutadapt --paired --clip_R1 15 --clip_R2 15 --fastqc --dont_gzip *_1.fastq *_2.fastq
+```
 
 
 
