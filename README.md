@@ -31,6 +31,7 @@ c) Genome assembly using Unicycler
 unicycler -1 short_reads_1-trimmed.fastq.gz -2 short_reads_2-trimmed.fastq.gz -o output_dir
 ```
 
+2. **Paired End Short-Reads Genome assembly**
 
 
 
