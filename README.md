@@ -7,8 +7,8 @@
 -Installing trim-galore 
 
 ```
-<p> conda create --name trimgalore <br>
-<p> conda install -c bioconda trim-galore <br>
+conda create --name trimgalore
+conda install -c bioconda trim-galore
 <p>conda install -c "bioconda/label/cf201901" trim-galore<br>
 ```
 
