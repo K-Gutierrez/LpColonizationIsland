@@ -6,9 +6,9 @@
 
 a) Trimming the raw data with Trim-galore 
 
-```conda create --name trimgalore
+```conda create --name trimgalore```
 conda install -c bioconda trim-galore
-conda install -c "bioconda/label/cf201901" trim-galore```
+conda install -c "bioconda/label/cf201901" trim-galore
 
 conda activate trimgalore 
 
