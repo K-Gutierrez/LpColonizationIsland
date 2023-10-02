@@ -170,19 +170,25 @@ conda install -c "bioconda/label/cf201901" freebayes
 conda activate Indels
 ```
 
-b) 
+b) Aligning the short reads to a reference genome
 
 ```
+# Create a database
 
+bowtie2-build -f ReferenceGenomeAssembly.fasta dbname
+
+# Align the Paired Short-Reads
+
+bowtie2 -x dbname -1 short_reads_1-trimmed.fastq -2 short_reads_2-trimmed.fastq -S ShortReadsAln.sam --no-unal
 ```
 
-c) 
+c) Convert SAM to BAM for sorting
 
 ```
-
+samtools view -S -b ShortReadsAln.sam > ShortReadsAln.bam
 ```
 
-d) 
+d) Sort BAM for SNP calling
 
 ```
 
