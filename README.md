@@ -250,45 +250,17 @@ makeblastdb -in LpR3P51.fasta  -dbtype nucl
 blastall -p blastn -i A.fasta -d B.fasta -m 6 > WF-R3P51Blast.tsv
 ```
 
-b) Annotation using Interproscan 
+b) Genome Annotation using Interproscan 
 
 ```
-
-```
-
-c) 
-
-```
-
-```
-
-d) 
-
-```
-
-```
-
-e) 
-
-```
-
-```
-
-f) 
-
-```
-
-```
-
-g) 
-
-```
-
+interproscan.sh -i GenomeAssembly.fasta -f tsv -iprlookup -goterms -pa
 ```
 
 
+## **6. Mapping Illumina reads on the colonization island.**
 
-Mapping Illumina reads on the colonization island
+
+
 In silico detection of circular and linear contigs
 L. plantarum phylogenetic tree.
 
