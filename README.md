@@ -222,6 +222,61 @@ vcffilter -f "TYPE = snp" Indels-split.vcf > Indels-split-SNPs.vcf
 i) Annotate the genetic variants using SnpEff
 
 ```
+# Modify the snpEff.config file, adding the following information
+
+#Lactobacillus plantarum, tig00000001_pilon / Assembly_4Iterations
+lp.genome : Lactobacillus_plantarum
+lp.chromosomes : tig00000001_pilon / Assembly_4Iterations
+lp.tig00000001_pilon.codonTable: Bacterial_and_Plant_Plastid
+
+# Generate the Lp database
+
+java -jar snpEff.jar build -gff3 -v lp
+
+# Run the annotation
+
+java -Xmx4G -jar snpEff.jar lp Indels-split-SNPs.vcf > Indels-split-SNPs-Annotation.vcf
+```
+
+
+
+## **5. Comparative genomics of Lp WF and Lp R3P51, and the functional annotation of the colonization island.**
+
+a) Blastn using the LpWF as a reference genome
+
+```
+makeblastdb -in LpR3P51.fasta  -dbtype nucl
+
+blastall -p blastn -i A.fasta -d B.fasta -m 6 > WF-R3P51Blast.tsv
+```
+
+b) Annotation using Interproscan 
+
+```
+
+```
+
+c) 
+
+```
+
+```
+
+d) 
+
+```
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
 
 ```
 
@@ -229,17 +284,9 @@ g)
 
 ```
 
+```
 
 
-
-
-
-
-
-
-## **5. Indels distribution over time in the evolved replicates and passages.**
-
-Comparative genomics of Lp WF and Lp R3P51, and the functional annotation of the colonization island.
 
 Mapping Illumina reads on the colonization island
 In silico detection of circular and linear contigs
