@@ -259,7 +259,7 @@ interproscan.sh -i GenomeAssembly.fasta -f tsv -iprlookup -goterms -pa
 
 ## **6. Mapping Illumina reads on the colonization island.**
 
-a) Installing Bowtie2, Bedtools, and Picard.
+a) Installing Bowtie2, Bedtools, bbmap, and Picard.
 
 ```
 conda create --name MappingIlluminaReads
@@ -267,6 +267,9 @@ conda create --name MappingIlluminaReads
 conda install -c bioconda bowtie2
 conda install -c "bioconda/label/broken" bowtie2
 conda install -c "bioconda/label/cf201901" bowtie2
+
+conda install -c bioconda bbmap
+conda install -c "bioconda/label/cf201901" bbmap
 
 conda activate MappingIlluminaReads
 
@@ -282,38 +285,39 @@ bedtools maskfasta -fi ColonizationIsland-LpWF.fasta -bed ColonizationIsland-LpW
 
 c)  Normalizing the Illumina short reads to 100x 
 
-After trimming all the raw reads from the evolved replicates and pasages, as well Sneha's mutants and Cornell strains (Folder: Original-Reads-Trimmed), reads were normalized (100x) using bbmap-norm program: bbmap-norm
-
 ```
-bbnorm.sh in=Rep12_Pass51_R1_val_1.fq in2=Rep12_Pass51_R2_val_2.fq out=R12P51_R1-50x.fq out2=R12P51_R2-50x.fq target=50 mindepth=6 ecc=f 
+/mypath/bbnorm.sh in=short_reads_1-trimmed.fastq in2=short_reads_2-trimmed.fastq out=short_reads_1-trimmed-100x.fastq out2= short_reads_1-trimmed-100x.fastq target=100 mindepth=6 ecc=f 
 ```
 
-d) Picard
+d) Aligning normalized Illumina reads with the Colonization Island sequence
+
+```
+# Create a database
+
+bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
+
+# Align the Paired Short-Reads
+
+bowtie2 -x dbname -1 short_reads_1-trimmed-100x.fastq -2 short_reads_2-trimmed-100x.fastq -S ShortReadsAln-100x.sam --no-unal
+
+#Convert SAM to BAM for sorting
+
+samtools view -S -b ShortReadsAln-100x.sam > ShortReadsAln-100x.bam
+
+#Sort BAM for SNP calling
+
+samtools sort ShortReadsAln-100x.bam ShortReadsAln-sorted-100x.bam
+```
+
+e) Evaluating the quality of mapping with Picard
 
 ```
 java -jar picard.jar CollectAlignmentSummaryMetrics \
-	REFERENCE=my_data/reference.fasta \
-	INPUT=my_data/input.bam \
-	OUTPUT=results/output.txt
+	REFERENCE=my_data/ColonizationIsland-LpWF-Masked.fasta \
+	INPUT=my_data/ShortReadsAln-sorted-100x.bam \
+	OUTPUT=results/Metrics.txt
 ```
 
-e) 
-
-```
-
-```
-
-f) 
-
-```
-
-```
-
-g) 
-
-```
-
-```
 
 
 In silico detection of circular and linear contigs
