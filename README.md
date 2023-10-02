@@ -4,7 +4,7 @@
 
 ## **1. Paired End Short-Reads Genome assembly**
 
-a) Installing trim-galore, Unicycler, and Quast
+a) Installing trim-galore, Unicycler, and Bbmap
 
 ```
 conda create --name ShortReadsAssembly
@@ -66,26 +66,38 @@ conda activate HiFiPacBioassembly
 b) Random sampling 80,000 HiFi PacBio reads using SeqTK toolkit v1.3
 
 ```
-
+seqtk sample -s100 HiFiPacBioReads.fastq 80000 > My/path/HiFiPacBioReads.subsampled.fastq
 ```
-
-
 
 c) HiFi PacBio genome assembly using Flye v2.9.1
 
 ```
+flye -t 20 --out-dir HiFiPacBioAssembly --pacbio-hifi HiFiPacBioReads.subsampled.fastq --genome-size 3.5m
+
+# The genome size of Lactiplantibacillus plantarum is ~3.5 Mbp
 ```
+
 d) circularize HiFi PacBio genome assemblies using Circlator v1.5.5
 
-
 ```
+circlator all HiFiPacBioassembly.fasta HiFiPacBioReads.subsampled.fastq output_directory
 ```
 
 e) Genome assembly metrics
 
 ```
-quast genomeassembly.fasta -o out_name
+quast HiFiPacBiogenomeassembly.fasta -o out_name
 ```
+
+f) Ordering contigs using the LpWF genome assembly as reference
+
+
+
+
+
+
+
+
 
 ```
 /data/programs/miniconda3/bin/seqtk sample -s100 /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.hifi_reads.fastq 80000 > /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.subsampled_hifi_reads.fastq
