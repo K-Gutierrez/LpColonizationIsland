@@ -94,8 +94,14 @@ quast HiFiPacBiogenomeassembly.fasta -o out_name
 f) Ordering contigs using the LpWF-HiFi genome assembly as a reference
 
 ```
-ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta 
+ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta
+
+# The genome assemblies from the R3P51, D11, and F9A were ordered using LpWF-HiFi as a reference
 ```
+
+
+
+## **3. mmmkmk**
 
 
 
