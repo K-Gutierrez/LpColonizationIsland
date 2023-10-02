@@ -1,6 +1,6 @@
 #! user/bin/perl
 #Zhuofei et al., Modified by KGutierrez
-## perl fasta_manipulate.Endseq.pl conting.fna 500
+## perl ExtractingEndSeq.pl conting.fna 500
 die "Usage: perl $0 fasta.input (sequence in multi-line) extractLength> out\n" unless (@ARGV == 2);
 
 open (FILE, "$ARGV[0]")||die "cannot open $ARGV[0]\n";
