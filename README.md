@@ -101,9 +101,133 @@ ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta
 
 
 
-## **3. mmmkmk**
+## **3. Comparative genomics of L. plantarum genome assemblies and their functional annotation based on RAST subsystems.**
+
+a) 
+
+```
+
+```
+
+b) 
+
+```
+
+```
+
+c) 
+
+```
+
+```
+
+d) 
+
+```
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
+
+```
+
+g) 
+
+```
+
+```
 
 
+
+## **4. Indels distribution over time in the evolved replicates and passages.**
+
+a) Installing Bowtie2, Samtools, Sambamba, and Freebayes
+
+```
+conda create --name Indels
+
+conda install -c bioconda bowtie2
+conda install -c "bioconda/label/broken" bowtie2
+conda install -c "bioconda/label/cf201901" bowtie2
+
+conda install -c bioconda samtools
+conda install -c "bioconda/label/cf201901" samtools
+
+To install Sambamba, visit: https://lomereiter.github.io/sambamba/docs/sambamba-markdup.html
+
+conda install -c bioconda freebayes
+conda install -c "bioconda/label/broken" freebayes
+conda install -c "bioconda/label/cf201901" freebayes
+
+conda activate Indels
+```
+
+b) 
+
+```
+
+```
+
+c) 
+
+```
+
+```
+
+d) 
+
+```
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
+
+```
+
+g) 
+
+```
+
+```
+
+
+
+
+
+
+
+
+
+## **5. Indels distribution over time in the evolved replicates and passages.**
+
+Comparative genomics of Lp WF and Lp R3P51, and the functional annotation of the colonization island.
+
+Mapping Illumina reads on the colonization island
+In silico detection of circular and linear contigs
+L. plantarum phylogenetic tree.
+
+Genome mining for colonization island in L. plantarum genomes
+
+Transposable elements annotation and classification.
+SRRPs and TEs similarity network.
+Prediction of the recombination sites.
+Colonization island in other bacteria.
 
 
 
