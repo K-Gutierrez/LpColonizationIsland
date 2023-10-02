@@ -34,7 +34,6 @@ unicycler -1 short_reads_1-trimmed.fastq.gz -2 short_reads_2-trimmed.fastq.gz -o
 ## **2. HiFi PacBio Genome assembly**
 
 
-
 /data/programs/miniconda3/bin/seqtk sample -s100 /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.hifi_reads.fastq 80000 > /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.subsampled_hifi_reads.fastq
 
 
