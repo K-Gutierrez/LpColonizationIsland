@@ -259,6 +259,56 @@ interproscan.sh -i GenomeAssembly.fasta -f tsv -iprlookup -goterms -pa
 
 ## **6. Mapping Illumina reads on the colonization island.**
 
+a) Installing Bowtie2, Bedtools, and Picard.
+
+```
+conda create --name MappingIlluminaReads
+
+conda install -c bioconda bowtie2
+conda install -c "bioconda/label/broken" bowtie2
+conda install -c "bioconda/label/cf201901" bowtie2
+
+conda activate MappingIlluminaReads
+
+To install Bedtools, visit: https://bedtools.readthedocs.io/en/latest/content/installation.html
+To install Picard, visit: https://broadinstitute.github.io/picard/
+```
+
+b) 
+
+```
+bedtools maskfasta -fi <input FASTA> -bed <BED/GFF/VCF> -fo <output FASTA>
+```
+
+c)  After trimming all the raw reads from the evolved replicates and pasages, as well Sneha's mutants and Cornell strains (Folder: Original-Reads-Trimmed), reads were normalized (100x) using bbmap-norm program: bbmap-norm
+
+```
+bbnorm.sh in=Rep12_Pass51_R1_val_1.fq in2=Rep12_Pass51_R2_val_2.fq out=R12P51_R1-50x.fq out2=R12P51_R2-50x.fq target=50 mindepth=6 ecc=f 
+```
+
+d) 
+
+```
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
+
+```
+
+g) 
+
+```
+
+```
 
 
 In silico detection of circular and linear contigs
