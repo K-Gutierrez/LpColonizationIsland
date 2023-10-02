@@ -44,7 +44,7 @@ quast genomeassembly.fasta -o out_name
 
 ## **2. HiFi PacBio Genome assembly**
 
-a) Installing SeqTK toolkit, Flye, Circlator, and Quast
+a) Installing SeqTK toolkit, Flye, Circlator, Ragoo, and Quast
 
 ```
 conda create --name HiFiPacBioassembly
@@ -59,6 +59,8 @@ conda install -c "bioconda/label/cf201901" circulator
 
 conda install -c bioconda quast
 conda install -c "bioconda/label/cf201901" quast
+
+conda install -c imperial-college-research-computing ragoo
 
 conda activate HiFiPacBioassembly
 ```
@@ -89,18 +91,10 @@ e) Genome assembly metrics
 quast HiFiPacBiogenomeassembly.fasta -o out_name
 ```
 
-f) Ordering contigs using the LpWF genome assembly as reference
-
-
-
-
-
-
-
-
+f) Ordering contigs using the LpWF-HiFi genome assembly as a reference
 
 ```
-/data/programs/miniconda3/bin/seqtk sample -s100 /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.hifi_reads.fastq 80000 > /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.subsampled_hifi_reads.fastq
+ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta 
 ```
 
 
