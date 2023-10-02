@@ -319,8 +319,11 @@ java -jar picard.jar CollectAlignmentSummaryMetrics \
 ```
 
 
+## **7. In silico detection of circular and linear contigs.**
 
-In silico detection of circular and linear contigs
+
+
+
 L. plantarum phylogenetic tree.
 
 Genome mining for colonization island in L. plantarum genomes
