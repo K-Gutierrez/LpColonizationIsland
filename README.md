@@ -321,6 +321,53 @@ java -jar picard.jar CollectAlignmentSummaryMetrics \
 
 ## **7. In silico detection of circular and linear contigs.**
 
+a) Split the genome assembly into single contigs 
+
+```
+awk '/^>/ {OUT=substr($0,2) ".fasta"}; {print >> OUT; close(OUT)}' HiFiPacBio-circlator.fasta
+```
+
+b) Extracting 500 bp from both ends of the contig
+
+```
+perl ExtractingEndSeq.pl Contig.fna 500
+```
+
+c) Merge both ends of the contig
+
+```
+cat contig.rightseq.fa contig.leftseq.fa > Contig-BothSides.fa
+
+# Remove the ">"
+```
+
+d) Aligning normalized Illumina reads with the file that has the sequence of both ends of the contig
+
+```
+conda activate MappingIlluminaReads
+
+
+
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
+
+```
+
+g) 
+
+```
+
+```
 
 
 
