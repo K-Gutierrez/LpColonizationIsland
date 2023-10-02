@@ -33,8 +33,42 @@ unicycler -1 short_reads_1-trimmed.fastq.gz -2 short_reads_2-trimmed.fastq.gz -o
 
 ## **2. HiFi PacBio Genome assembly**
 
+a) Installing SeqTK toolkit, Flye, and Circlator
 
+```
+conda create --name HiFiPacBioassembly
+conda install -c bioconda seqtk
+conda install -c "bioconda/label/cf201901" seqtk
+
+conda install -c bioconda flye
+conda install -c "bioconda/label/cf201901" flye
+
+conda install -c bioconda circlator
+conda install -c "bioconda/label/cf201901" circulator
+```
+
+b) Random sampling 80,000 HiFi PacBio reads using SeqTK toolkit v1.3
+
+```
+```
+
+
+
+c) HiFi PacBio genome assembly using Flye v2.9.1
+
+```
+```
+d) circularize HiFi PacBio genome assemblies using Circlator v1.5.5
+
+
+```
+```
+
+
+
+```
 /data/programs/miniconda3/bin/seqtk sample -s100 /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.hifi_reads.fastq 80000 > /data2/projects/WilliamLudington_QUO1002401/Lactobacillus_plantarum_LpWF_Parental/Lactobacillus_plantarum_LpWF_Parental.subsampled_hifi_reads.fastq
+```
 
 
 
