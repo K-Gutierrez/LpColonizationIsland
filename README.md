@@ -149,7 +149,7 @@ g)
 
 ## **4. Indels distribution over time in the evolved replicates and passages.**
 
-a) Installing Bowtie2, Samtools, Sambamba, and Freebayes
+a) Installing Bowtie2, Samtools, Sambamba, Freebayes, and SnpEff
 
 ```
 conda create --name Indels
@@ -161,13 +161,14 @@ conda install -c "bioconda/label/cf201901" bowtie2
 conda install -c bioconda samtools
 conda install -c "bioconda/label/cf201901" samtools
 
-To install Sambamba, visit: https://lomereiter.github.io/sambamba/docs/sambamba-markdup.html
-
 conda install -c bioconda freebayes
 conda install -c "bioconda/label/broken" freebayes
 conda install -c "bioconda/label/cf201901" freebayes
 
 conda activate Indels
+
+To install Sambamba, visit: https://lomereiter.github.io/sambamba/docs/sambamba-markdup.html
+To install SnpEff, visit http://snpeff.sourceforge.net/SnpEff_manual.html#run
 ```
 
 b) Aligning the short reads to a reference genome
@@ -191,24 +192,40 @@ samtools view -S -b ShortReadsAln.sam > ShortReadsAln.bam
 d) Sort BAM for SNP calling
 
 ```
-
+samtools sort ShortReadsAln.bam ShortReadsAln-sorted.bam
 ```
 
-e) 
+e) Mark duplicates with sambamba
 
 ```
-
+./sambamba-0.7.1-linux-static markdup -r -p ShortReadsAln-sorted.bam ShortReadsAln-sorted_filter.bam
 ```
 
-f) 
+f) Freebayes to find Indels
+
+```
+./freebayes-v1.3.1 -f ReferenceGenomeAssembly.fasta --gvcf --use-best-n-alleles 4 -p 1 ShortReadsAln-sorted_filter.bam | vcffilter -f "QUAL > 20" > Indels.vcf
+```
+
+g) Split multiallelic variants 
+
+```
+bcftools norm --multiallelics -both Indels.vcf > Indels-split.vcf
+```
+
+h) Filter only SNPs
+
+```
+vcffilter -f "TYPE = snp" Indels-split.vcf > Indels-split-SNPs.vcf
+```
+
+i) Annotate the genetic variants using SnpEff
 
 ```
 
 ```
 
 g) 
-
-```
 
 ```
 
