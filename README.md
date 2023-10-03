@@ -394,35 +394,24 @@ c) Constructing the L. plantarum phylogenetic tree
 
 Please visit https://doua.prabi.fr/software/seaview
 
-# Add the following script at the end of the file LpCoreProteome-nexus.nxs
-
-begin mrbayes;
-set     autoclose=yes
-        nowarn=yes;
-lset nst=2 rates=invgamma ngammacat=4;
-mcmcp  ngen=1000000
-        nruns=2
-        nchains=4
-        temp=0.25
-        samplefreq=100
-        printfreq=100
-        printall=yes
-        burninfrac=0.25
-        swapfreq=1
-        savebrlens=yes;
-mcmc
-        filename=insectos_final;
-sump;
-sumt;
-END;
+# Add the MrBayes.fa script at the end of the file LpCoreProteome-nexus.nxs
 
 # Run MrBayes
 nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteome-nexus.log&
 ```
 
 
+## **8. Genome mining for colonization island in L. plantarum genomes.**
 
-Genome mining for colonization island in L. plantarum genomes
+a) Using Lp Genome assemblies 
+
+b) Using raw data obtained from SRA-NCBI
+
+
+
+
+
+
 
 Transposable elements annotation and classification.
 SRRPs and TEs similarity network.
