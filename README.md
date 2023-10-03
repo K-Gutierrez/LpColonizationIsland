@@ -346,8 +346,47 @@ d) Aligning normalized Illumina reads with the file that has the sequence of bot
 ```
 conda activate MappingIlluminaReads
 
+# Create a database
+
+bowtie2-build -f Contig-BothSides.fa dbname-LinearContig
+
+# Align the Paired Short-Reads
+
+bowtie2 -x dbname-LinearContig -1 short_reads_1-trimmed-100x.fastq -2 short_reads_2-trimmed-100x.fastq -S ShortReadsAln-100x-LinearContig.sam --no-unal
+
+#Convert SAM to BAM for sorting
+
+samtools view -S -b ShortReadsAln-100x-LinearContig.sam > ShortReadsAln-100x-LinearContig.bam
+
+#Sort BAM for SNP calling
+
+samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-LinearContig.bam
+```
 
 
+## **8. L. plantarum phylogenetic tree.**
+
+a) To perform the RAST annotation and
+
+```
+
+```
+
+b) 
+
+```
+
+```
+
+c) 
+
+```
+
+```
+
+d) 
+
+```
 
 ```
 
@@ -371,7 +410,11 @@ g)
 
 
 
-L. plantarum phylogenetic tree.
+
+
+
+
+
 
 Genome mining for colonization island in L. plantarum genomes
 
