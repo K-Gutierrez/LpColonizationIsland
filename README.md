@@ -366,16 +366,36 @@ samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-Line
 
 ## **8. L. plantarum phylogenetic tree.**
 
-a) High throughput RAST annotation and calculating the core proteome
+a) Installing MrBayes
 
 ```
-Please visit: 
+conda create --name LpTree
+
+conda install -c bioconda mrbayes
+conda install -c "bioconda/label/cf201901" mrbayes
+
+conda activate LpTree
+
+```
+
+b) High throughput RAST annotation and calculating the core proteome
+
+```
+# Please visit: 
 Gutiérrez-García, Karina, et al. "Cycad coralloid roots contain bacterial communities including cyanobacteria and Caulobacter spp. that encode niche-specific biosynthetic gene clusters." Genome Biology and Evolution 11.1 (2019): 319-334.
+
+# Use the Lp.Ids file to obtain the core proteome
 ```
 
-b) 
+c) Constructing the L. plantarum phylogenetic tree
 
 ```
+#Convert the LpCoreProteome.fasta in nexus format
+
+
+# Run MrBayes 
+
+nohup My/path/mrbayes/MrBayes/src/mb -i example.nxs > example.log&
 
 ```
 
