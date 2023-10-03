@@ -366,10 +366,11 @@ samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-Line
 
 ## **8. L. plantarum phylogenetic tree.**
 
-a) To perform the RAST annotation and
+a) High throughput RAST annotation and calculating the core proteome
 
 ```
-
+Please visit: 
+Gutiérrez-García, Karina, et al. "Cycad coralloid roots contain bacterial communities including cyanobacteria and Caulobacter spp. that encode niche-specific biosynthetic gene clusters." Genome Biology and Evolution 11.1 (2019): 319-334.
 ```
 
 b) 
