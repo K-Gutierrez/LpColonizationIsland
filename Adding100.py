@@ -1,6 +1,6 @@
 # Define the input and output file paths
-input_file = 'your_table.txt'
-output_file = 'updated_table.txt'
+input_file = 'final.results'
+output_file = 'final.results100.txt'
 
 # Read the file and update the values
 with open(input_file, 'r') as input, open(output_file, 'w') as output:
@@ -11,3 +11,4 @@ with open(input_file, 'r') as input, open(output_file, 'w') as output:
         output.write(f'{column1}\t{column2}\n')
 
 print(f'The updated table has been saved to {output_file}.')
+
