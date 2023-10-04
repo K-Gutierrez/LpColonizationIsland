@@ -401,7 +401,7 @@ nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteom
 ```
 
 
-## **8. Genome mining for colonization island in L. plantarum genomes.**
+## **8. Genome mining for colonization islands in L. plantarum genomes.**
 
 a) Using Lp Genome assemblies 
 
@@ -440,13 +440,17 @@ python OrderHMMERTable.py
 
 perl HMMER-Evalue.pl
 
-# Ordering the table out-HMMER-1-3.order.txt according to the Lp Tree
+# Adding missing Lp genomes (Genomes that did not have any HMMER- hits) to the file out-HMMER-1-3.order.txt based on the Lp-DB
 
-bash OrderingHMMERTable.sh
+bash CompletingLpDB.sh
 
 The input files are:
 	- Order_LpTree.txt
 	- out-HMMER-1-3.order.txt
+
+
+# Ordering the table out-HMMER-1-3.order.txt according to the Lp Tree
+
 ```
 
 b) Using raw data obtained from SRA-NCBI
