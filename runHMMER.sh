@@ -3,5 +3,5 @@
 for i in $(ls *.fasta);
 
 do
-phmmer --tblout $i.out $i all_lpseq.faa;
+phmmer --tblout $i.out $i all_Lpgenomes_prot.faa;
 done
