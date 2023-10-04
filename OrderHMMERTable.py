@@ -10,3 +10,9 @@ sorted_table = sorted(table, key=lambda x: int(x[1]), reverse=True)
 for row in sorted_table:
     print(row[0], row[1])
 
+# Write results to an output file
+with open('HMMER-1-3.order.txt', 'w') as output_file:
+    for row in sorted_table:
+        output_file.write(f'{row[0]} {row[1]}\n')
+
+
