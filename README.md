@@ -406,6 +406,31 @@ nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteom
 a) Using Lp Genome assemblies 
 
 ```
+#Installing HMMER
+
+conda create --name LpIsland
+conda install -c bioconda hmmer
+conda install -c "bioconda/label/cf201901" hmmer
+conda activate LpIsland
+
+# Download from RAST the amino acid files for each L. plantarum genome from the Lp.Ids
+
+# Create a Lp database
+
+cat *.faa > all_Lpgenomes_prot.faa
+formatdb -i all_genomes_prot.faa -p T -V
+
+# Get all the queries from the colonization island from LpWF
+
+awk '/^>/ {OUT=substr($0,2) ".fasta"}; {print >> OUT; close(OUT)}' ColonizationIslandLpWF.fasta
+
+# Run HMMER
+
+./runHMMER.sh
+
+
+
+
 
 ```
 
