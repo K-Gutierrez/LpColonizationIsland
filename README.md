@@ -448,6 +448,12 @@ The input files are:
 	- Order_LpTree.txt
 	- out-HMMER-1-3.order.txt
 
+# Fill empty spaces in the second column with 100
+
+python Adding100.py
+
+
+
 
 # Ordering the table out-HMMER-1-3.order.txt according to the Lp Tree
 
