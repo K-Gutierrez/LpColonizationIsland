@@ -438,15 +438,15 @@ python OrderHMMERTable.py
 
 # Select the lowest e-value per hit
 
-perl HMMER-Evalue.py
+perl HMMER-Evalue.pl
 
+# Ordering the table out-HMMER-1-3.order.txt according to the Lp Tree
 
+bash OrderingHMMERTable.sh
 
-
-
-
-
-
+The input files are:
+	- Order_LpTree.txt
+	- out-HMMER-1-3.order.txt
 ```
 
 b) Using raw data obtained from SRA-NCBI
