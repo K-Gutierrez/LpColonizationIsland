@@ -428,7 +428,18 @@ awk '/^>/ {OUT=substr($0,2) ".fasta"}; {print >> OUT; close(OUT)}' ColonizationI
 
 ./runHMMER.sh
 
-# 
+# Keep only the first and third column
+
+cut -f 1,3 HMMER.out > HMMER-1-3.txt
+
+# Ordering the HMMER-1-3.txt table from ascending to descending
+
+python OrderHMMERTable.py
+
+
+
+
+
 
 
 
