@@ -415,7 +415,7 @@ conda activate LpIsland
 
 # Download from RAST the amino acid files for each L. plantarum genome from the Lp.Ids
 
-# Create a Lp database
+# Create an Lp database
 
 cat *.faa > all_Lpgenomes_prot.faa
 formatdb -i all_genomes_prot.faa -p T -V
@@ -428,6 +428,7 @@ awk '/^>/ {OUT=substr($0,2) ".fasta"}; {print >> OUT; close(OUT)}' ColonizationI
 
 ./runHMMER.sh
 
+# 
 
 
 
