@@ -452,11 +452,13 @@ The input files are:
 
 python Adding100.py
 
+# Ordering the table final.results100.txt according to the Lp Tree
 
+./LpTree-Final.sh
 
-
-# Ordering the table out-HMMER-1-3.order.txt according to the Lp Tree
-
+The input files are:
+	- Order_LpTree.txt
+	- final.results100.txt
 ```
 
 b) Using raw data obtained from SRA-NCBI
