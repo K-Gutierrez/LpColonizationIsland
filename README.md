@@ -405,9 +405,15 @@ nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteom
 
 a) Using Lp Genome assemblies 
 
+```
 
+```
 
 b) Using raw data obtained from SRA-NCBI
+
+```
+
+```
 
 
 
