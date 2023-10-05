@@ -106,43 +106,7 @@ ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta
 a) 
 
 ```
-
-```
-
-b) 
-
-```
-
-```
-
-c) 
-
-```
-
-```
-
-d) 
-
-```
-
-```
-
-e) 
-
-```
-
-```
-
-f) 
-
-```
-
-```
-
-g) 
-
-```
-
+The comparison was performed using the Function-based comparison tool from RAST
 ```
 
 
@@ -533,14 +497,17 @@ yass ColonizationIslandLpWF.fna  ColonizationIslandLpWF.mfa    -C 2,-2,-3   -G -
 yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open LpIsland-DotPlot.png
 ```
 
+
+
 ## **10. Colonization island in other bacteria.**
 
-a) 
+a) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
 
 ```
-
+-E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
 ```
 
+b) 
 
 
 ## **11. SRRPs and TEs similarity network.**
