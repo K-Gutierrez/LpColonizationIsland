@@ -501,22 +501,19 @@ nohup fastq-dump -I --split-files *.sra &
 
 ./TrimmingEndPair-SRA.sh
 
+# # Create a database
 
-# Align the raw reads vs. the colonization island
+bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 
+# Align the raw reads vs. the colonization island (ColonizationIsland-LpWF-Masked.fasta)
 
+./AlnSingleEnd-SRA.sh
 
-./SRA-Aln.sh
+./AlnPairedEnd-SRA.sh
 
+# Quantify the reads mapped
 
-
-
-
-
-
-
-
-
+./QuantifyReads.sh
 ```
 
 
