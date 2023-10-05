@@ -517,13 +517,24 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 ```
 
 
-## **9. Transposable elements annotation and classification.**
 
-## **10. SRRPs and TEs similarity network.**
+## **9. Prediction of the recombination sites.**
 
-## **11. Prediction of the recombination sites.**
+a) Installing Yass program, a genomic similarity search tool
 
-## **12. Colonization island in other bacteria..**
+```
+Please visit: https://github.com/laurentnoe/yass 
+```
+
+b) Run Yass to get the Dot plot using the colonization island sequence from LpWF 
+
+```
+yass ColonizationIslandLpWF.fna  ColonizationIslandLpWF.mfa    -C 2,-2,-3   -G -5,-2   -E 1e-20   -o LpIsland-output.yop
+yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open LpIsland-DotPlot.png
+```
+
+## **10. Colonization island in other bacteria..**
+## **11. SRRPs and TEs similarity network.**
 
 a) 
 
@@ -566,6 +577,8 @@ g)
 ```
 
 ```
+
+## **9. Transposable elements annotation and classification.**
 
 
 
