@@ -476,6 +476,15 @@ conda activate SRA-DB
 
 prefetch --option-file SRA-DB.txt
 
+# To get the fastq files
+
+fastq-dump -I --split-files SRR390728
+
+# To get the pared-end raw reads
+
+nohup fastq-dump -I --split-files *.sra &
+
+
 
 
 
