@@ -504,7 +504,35 @@ a) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
 -E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
 ```
 
-b) 
+b) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20)
+
+```
+Please visit: https://bacteria.ensembl.org/info/data/ftp/index.html
+```
+
+c) Annotate the selected bacterial genomes using RAST and download them in *.faa
+
+d) Create a genome assemblies database and run HMMER against SecA2 and SecY2 proteins from LpWF 
+
+```
+cat *.faa > all_SelectedGenomes.faa
+./phmmer --tblout HMMER-SelectedGenomes-SecA.txt SecA.fasta all_SelectedGenomes.faa
+./phmmer --tblout HMMER-SelectedGenomes-SecY.txt SecY.fasta all_SelectedGenomes.faa
+```
+
+e) Keep only the column 1 (RAST-IDs)
+
+```
+$cut -f 1 HMMER-SelectedGenomes-SecA.txt > SecA-Ids
+$cut -f 1 HMMER-SelectedGenomes-SecY.txt > SecY-Ids
+```
+
+f) Extract ~100 proteins upstream and downstream from the HMMER hit
+
+./Extract100Seq.sh
+
+
+
 
 
 ## **11. SRRPs and TEs similarity network.**
