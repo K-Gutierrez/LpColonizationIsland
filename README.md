@@ -103,12 +103,9 @@ ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta
 
 ## **3. Comparative genomics of L. plantarum genome assemblies and their functional annotation based on RAST subsystems.**
 
-a) 
-
 ```
 The comparison was performed using the Function-based comparison tool from RAST
 ```
-
 
 
 ## **4. Indels distribution over time in the evolved replicates and passages.**
