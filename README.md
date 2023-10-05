@@ -513,8 +513,14 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 
 # Quantify the reads mapped
 
-./QuantifyReads.sh
+./ReadCount.sh
 ```
+
+
+## **9. Transposable elements annotation and classification.**
+
+
+
 
 
 
