@@ -464,6 +464,20 @@ The input files are:
 b) Using raw data obtained from SRA-NCBI
 
 ```
+# Installing the SRA Toolkit
+
+conda create --name SRA-DB
+conda install -c bioconda sra-tools
+conda install -c "bioconda/label/cf201901" sra-tools
+
+conda activate SRA-DB
+
+# Download the raw-reads
+
+prefetch --option-file SRA-DB.txt
+
+
+
 
 ```
 
