@@ -498,21 +498,48 @@ yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open Lp
 
 ## **10. Colonization island in other bacteria.**
 
-a) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
+a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, quicktree 
+
+```
+conda create --name aSecTree
+conda install -c bioconda hmmer
+conda install -c "bioconda/label/cf201901" hmmer
+
+conda install -c bioconda blast
+conda install -c "bioconda/label/cf201901" blast
+
+conda install -c bioconda muscle
+conda install -c "bioconda/label/cf201901" muscle
+
+conda install -c bioconda gblocks
+conda install -c "bioconda/label/cf201901" gblocks
+
+conda install -c conda-forge biopython
+conda install -c "conda-forge/label/cf201901" biopython
+conda install -c "conda-forge/label/cf202003" biopython
+conda install -c "conda-forge/label/gcc7" biopython
+
+conda install -c bioconda quicktree
+conda install -c "bioconda/label/cf201901" quicktree
+
+conda activate aSecTree
+```
+
+b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
 
 ```
 -E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
 ```
 
-b) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20)
+c) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20)
 
 ```
 Please visit: https://bacteria.ensembl.org/info/data/ftp/index.html
 ```
 
-c) Annotate the selected bacterial genomes using RAST and download them in *.faa
+d) Annotate the selected bacterial genomes using RAST and download them in *.faa
 
-d) Create a genome assemblies database and run HMMER against SecA2 and SecY2 proteins from LpWF 
+e) Create a genome assemblies database and run HMMER against SecA2 and SecY2 proteins from LpWF 
 
 ```
 cat *.faa > all_SelectedGenomes.faa
@@ -520,14 +547,14 @@ cat *.faa > all_SelectedGenomes.faa
 ./phmmer --tblout HMMER-SelectedGenomes-SecY.txt SecY.fasta all_SelectedGenomes.faa
 ```
 
-e) Keep only the column 1 (RAST-IDs)
+f) Keep only the column 1 (RAST-IDs)
 
 ```
 $cut -f 1 HMMER-SelectedGenomes-SecA.txt > SecA-Ids
 $cut -f 1 HMMER-SelectedGenomes-SecY.txt > SecY-Ids
 ```
 
-f) Extract ~100 proteins upstream and downstream from the HMMER hit
+g) Extract ~100 proteins upstream and downstream from the HMMER hit
 
 ```
 ./Extract100Seq.sh
@@ -535,7 +562,7 @@ f) Extract ~100 proteins upstream and downstream from the HMMER hit
 The output file "results.txt" will be used to find the aSec proteins using BlastP
 ```
 
-g) Finding Homologous aSec proteins using BlastP
+h) Finding Homologous aSec proteins using BlastP
 
 ```
 # Make a blast database
@@ -546,17 +573,59 @@ perl BlastFormat.pl
 
 for i in $(ls *.fasta); do perl BlastP.pl $i $i.txt 0.000001 100;done
 
-# Change the name of the headers for the RAST-Names, using the RAST.ids file.
+# Change the name of the headers for the RAST-Names, using the RAST.Ids file.
 
 perl RASTID_Names.pl aSecProteins-out.faa > aSecProteins-outNames.fasta
-
-
-
-
-
-
 ```
 
+j) Checking if there are duplicate hits or missing hits for each aSec protein
+
+```
+# Create a DocumentA.txt with the RAST.Ids (First column)
+
+cut -f 1 RAST.Ids > DocumentA.txt
+
+# Create a document with a list of missing IDs and duplicate IDs for each Blast-output file (i.e., aSecProteins-outNames.fasta)
+
+python DuplicatesAndMissingIDs.py
+
+# Remove the genomes that do not have a complete aSec protein from all fasta files, creating a list from the Selected Genomes with all the aSec proteins ==> list.txt
+
+seqkit grep -n -f list.txt aSecProteins-outNames.fasta > aSec-Filter.fasta.txt
+
+# Aling the resulting fasta files 
+
+for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
+
+# Trimming the alignments
+
+gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
+
+- The resulting files are asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta
+```
+
+k) Constructing the final matrix with the aSec proteins to construct the aSec tree.
+
+```
+# Extracting the proteins from the asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta, concatenate them in the same order, and get a final fasta file as output
+
+python ExtractOrderSec.py
+```
+
+l) Constructing the aSec tree
+
+```
+# Convert the aSec matrix (salida.fasta) to stockholm format
+
+python stochkolm.py
+
+# Run quicktree
+
+quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
+
+# Visualize in Figtree
+
+```
 
 ## **11. SRRPs and TEs similarity network.**
 
