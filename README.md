@@ -519,19 +519,55 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 
 ## **9. Transposable elements annotation and classification.**
 
+## **10. SRRPs and TEs similarity network.**
+
+## **11. Prediction of the recombination sites.**
+
+## **12. Colonization island in other bacteria..**
+
+a) 
+
+```
+
+```
+
+b) 
+
+```
+
+```
+
+c) 
+
+```
+
+```
+
+d) 
+
+```
+
+```
+
+e) 
+
+```
+
+```
+
+f) 
+
+```
+
+```
+
+g) 
+
+```
+
+```
 
 
-
-
-
-
-
-
-
-Transposable elements annotation and classification.
-SRRPs and TEs similarity network.
-Prediction of the recombination sites.
-Colonization island in other bacteria.
 
 
 
