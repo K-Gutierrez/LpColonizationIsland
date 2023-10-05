@@ -464,11 +464,22 @@ The input files are:
 b) Using raw data obtained from SRA-NCBI
 
 ```
-# Installing the SRA Toolkit
+# Installing the SRA Toolkit, Bowtie2, Trim-galore, and htseq-count
 
 conda create --name SRA-DB
 conda install -c bioconda sra-tools
 conda install -c "bioconda/label/cf201901" sra-tools
+
+conda install -c bioconda bowtie2
+conda install -c "bioconda/label/broken" bowtie2
+conda install -c "bioconda/label/cf201901" bowtie2
+
+conda install -c bioconda trim-galore
+conda install -c "bioconda/label/cf201901" trim-galore
+
+conda install -c bioconda htseq
+conda install -c "bioconda/label/broken" htseq
+conda install -c "bioconda/label/cf201901" htseq
 
 conda activate SRA-DB
 
@@ -480,9 +491,27 @@ prefetch --option-file SRA-DB.txt
 
 fastq-dump -I --split-files SRR390728
 
-# To get the pared-end raw reads
+# To get the paired-end raw reads
 
 nohup fastq-dump -I --split-files *.sra &
+
+# Trimming the raw data using Trim-galore
+
+./TrimmingSingleEnd-SRA.sh
+
+./TrimmingEndPair-SRA.sh
+
+
+# Align the raw reads vs. the colonization island
+
+
+
+./SRA-Aln.sh
+
+
+
+
+
 
 
 
