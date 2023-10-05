@@ -529,10 +529,21 @@ $cut -f 1 HMMER-SelectedGenomes-SecY.txt > SecY-Ids
 
 f) Extract ~100 proteins upstream and downstream from the HMMER hit
 
+```
 ./Extract100Seq.sh
 
+The output file "results.txt" will be used to find the aSec proteins using BlastP
+```
+
+g) Finding Homologous aSec proteins using BlastP
+
+```
+# Make a blast database
+
+perl BlastFormat.pl
 
 
+```
 
 
 ## **11. SRRPs and TEs similarity network.**
