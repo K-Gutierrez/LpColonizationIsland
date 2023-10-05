@@ -533,7 +533,16 @@ yass ColonizationIslandLpWF.fna  ColonizationIslandLpWF.mfa    -C 2,-2,-3   -G -
 yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open LpIsland-DotPlot.png
 ```
 
-## **10. Colonization island in other bacteria..**
+## **10. Colonization island in other bacteria.**
+
+a) 
+
+```
+
+```
+
+
+
 ## **11. SRRPs and TEs similarity network.**
 
 a) 
