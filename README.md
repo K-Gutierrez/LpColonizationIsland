@@ -544,7 +544,7 @@ perl BlastFormat.pl
 
 # Run BlastP using the aSec proteins as query from LpWF (Asp1.fasta, Asp2.fasta, Asp3.fasta, SecY2.fasta, SecA2.fasta, GftA.fasta, and GftB.fasta)
 
-for i in $(ls *.fasta); do perl blastin_2.pl $i $i.txt 0.000001 100;done
+for i in $(ls *.fasta); do perl Blast.pl $i $i.txt 0.000001 100;done
 
 # 
 
