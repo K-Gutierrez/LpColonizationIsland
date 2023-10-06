@@ -101,7 +101,7 @@ ragoo.py HiFiPacBio-circlator.fasta LpWF-HiFi.fasta
 
 
 
-## **3. Comparative genomics of L. plantarum genome assemblies and their functional annotation based on RAST subsystems.**
+## **3. Comparative genomics of *L. plantarum* genome assemblies and their functional annotation based on RAST subsystems.**
 
 ```
 The comparison was performed using the Function-based comparison tool from RAST
@@ -280,7 +280,7 @@ java -jar picard.jar CollectAlignmentSummaryMetrics \
 ```
 
 
-## **7. In silico detection of circular and linear contigs.**
+## **7. *In silico* detection of circular and linear contigs.**
 
 a) Split the genome assembly into single contigs 
 
@@ -325,7 +325,7 @@ samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-Line
 ```
 
 
-## **8. L. plantarum phylogenetic tree.**
+## **8. *L. plantarum* phylogenetic tree.**
 
 a) Installing MrBayes
 
@@ -366,7 +366,7 @@ Please visit: https://www.iroki.net/viewer
 ```
 
 
-## **8. Genome mining for colonization islands in L. plantarum genomes.**
+## **8. Genome mining for colonization islands in *L. plantarum* genomes.**
 
 a) Using Lp Genome assemblies 
 
@@ -429,7 +429,7 @@ The input files are:
 b) Using raw data obtained from SRA-NCBI
 
 ```
-# Installing the SRA Toolkit, Bowtie2, Trim-galore, and htseq-count
+# Installing the SRA Toolkit, Bowtie2, Trim-galore, Minimap2, and htseq-count
 
 conda create --name SRA-DB
 conda install -c bioconda sra-tools
@@ -445,6 +445,9 @@ conda install -c "bioconda/label/cf201901" trim-galore
 conda install -c bioconda htseq
 conda install -c "bioconda/label/broken" htseq
 conda install -c "bioconda/label/cf201901" htseq
+
+conda install -c bioconda minimap2
+conda install -c "bioconda/label/cf201901" minimap2
 
 conda activate SRA-DB
 
@@ -623,7 +626,7 @@ python ExtractOrderSec.py
 l) Constructing the aSec tree
 
 ```
-# Convert the aSec matrix (salida.fasta) to stockholm format
+# Convert the aSec matrix (salida.fasta) to Stockholm format
 
 python stochkolm.py
 
