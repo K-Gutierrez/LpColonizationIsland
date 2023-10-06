@@ -640,7 +640,7 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 ```
 
-l) Visualizing the genomic islands 
+m) Visualizing the genomic islands 
 
 ```
 The genomic context of the genomic islands was visualized using GeneSpy, please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
