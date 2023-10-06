@@ -542,7 +542,7 @@ b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
 -E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
 ```
 
-c) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20)
+c) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20 and one genome per bacterial genera)
 
 ```
 Please visit: https://bacteria.ensembl.org/info/data/ftp/index.html
@@ -643,12 +643,13 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 m) Visualizing the genomic islands 
 
 ```
-The genomic context of the genomic islands was visualized using GeneSpy, please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
+The genomic context of the genomic islands was visualized using GeneSpy,
+please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 ```
 
 ## **11. SRRPs similarity network.**
 
-a) 
+a) Obtaining the HMMER-hits sequences 
 
 ```
 
