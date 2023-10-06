@@ -554,15 +554,15 @@ e) Create a genome assemblies database and run HMMER against SecA2 and SecY2 pro
 
 ```
 cat *.faa > all_SelectedGenomes.faa
-./phmmer --tblout HMMER-SelectedGenomes-SecA.txt SecA.fasta all_SelectedGenomes.faa
-./phmmer --tblout HMMER-SelectedGenomes-SecY.txt SecY.fasta all_SelectedGenomes.faa
+./phmmer --tblout HMMER-SelectedGenomes-SrpA.txt SrpA.fasta all_SelectedGenomes.faa
+./phmmer --tblout HMMER-SelectedGenomes-SrpB.txt SrpB.fasta all_SelectedGenomes.faa
 ```
 
 f) Keep only the column 1 (RAST-IDs)
 
 ```
-$cut -f 1 HMMER-SelectedGenomes-SecA.txt > SecA-Ids
-$cut -f 1 HMMER-SelectedGenomes-SecY.txt > SecY-Ids
+$cut -f 1 HMMER-SelectedGenomes-SrpA.txt > SrpA-Ids
+$cut -f 1 HMMER-SelectedGenomes-SrpY.txt > SrpY-Ids
 ```
 
 g) Extract ~100 proteins upstream and downstream from the HMMER hit
@@ -638,6 +638,12 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 (http://tree.bio.ed.ac.uk/software/figtree/)
 
+```
+
+l) Visualizing the genomic islands 
+
+```
+The genomic context of the genomic islands was visualized using GeneSpy, please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 ```
 
 ## **11. SRRPs similarity network.**
