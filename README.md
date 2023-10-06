@@ -359,6 +359,10 @@ Please visit https://doua.prabi.fr/software/seaview
 
 # Run MrBayes
 nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteome-nexus.log&
+
+# Visualize the Lp tree using Iroki
+
+Please visit: https://www.iroki.net/viewer
 ```
 
 
@@ -471,6 +475,10 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 ./AlnSingleEnd-SRA.sh
 
 ./AlnPairedEnd-SRA.sh
+
+./AlnSingleEnd-Nano.sh
+
+./AlnSingleEnd-PacBio.sh
 
 # Quantify the reads mapped
 
@@ -606,7 +614,7 @@ gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
 
 k) Constructing the final matrix with the aSec proteins to construct the aSec tree.
 
-```
+```-
 # Extracting the proteins from the asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta, concatenate them in the same order, and get a final fasta file as output
 
 python ExtractOrderSec.py
@@ -625,9 +633,11 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 # Visualize in Figtree
 
+(http://tree.bio.ed.ac.uk/software/figtree/)
+
 ```
 
-## **11. SRRPs and TEs similarity network.**
+## **11. SRRPs similarity network.**
 
 a) 
 
