@@ -709,48 +709,27 @@ b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
 ```
 -E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
 ```
-```
 
-b) 
-
-```
-
-```
-
-c) 
+b) Selection HMMEr hits with e-value less than e-20
 
 ```
 
 ```
 
-d) 
+c) Download the HMMER hits from the Bacterial Ensembl Genomes Database
 
 ```
 
 ```
 
-e) 
+d) Construct the SRRPs similarity network
 
 ```
-
+EFI-Enzyme similarity tool 
+Please visit https://efi.igb.illinois.edu/efi-est/
 ```
 
-f) 
-
-```
-
-```
-
-g) 
-
-```
-
-```
-
-SRRPs similarity network. To evaluate the sequence homology among SRRPs from diverse bacterial genera, a similarity network was constructed. Homologs of SrpA and SrpB were identified using pHMMER v3.3.2 (REF) with the Bacterial Ensembl Genomes Database. All the HMMER hits with a threshold e-value equal to or less than e-20 were selected and its adhesin protein sequence was extracted and used to create a SRRPs database. The SRRPs similarity network was constructed using the EFI-Enzyme similarity tool (REF) with the default parameters. The network was visualized using Citoscape v3.10.1 (REF).
-
-
-
+e) Visualize the network using Cytoscape
 
 
 
