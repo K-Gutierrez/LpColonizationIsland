@@ -543,7 +543,7 @@ seqkit grep -n -f TEs-IDs.txt ColonizationIsland-LpWF.fasta > TEs.fasta
 cat TEs.fasta | awk '{if (substr($0, 1, 1)==">") { filename=(substr($0,2) ".fasta")} print $0 > filename}'
 ```
 
-c) BlastP to annotate the TEs based on homology 
+c) BlastP for TEs annotation based on sequence homology
 
 ```
 makeblastdb -in ISfinderDB.faa -dbtype prot -out Database.db
@@ -551,9 +551,9 @@ blastp -db Database.db -query TEs_aminoseq.fasta -outfmt 6 -evalue 0.001 -num_th
 ```
 
 
-## **11. Colonization island in other bacteria.**
+## **11. Colonization island in other bacteria genera.**
 
-a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, quicktree 
+a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, and quicktree 
 
 ```
 conda create --name aSecTree
@@ -693,10 +693,22 @@ please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 
 ## **11. SRRPs similarity network.**
 
-a) Obtaining the HMMER-hits sequences 
+a) Installing HMMER
 
 ```
+conda create --name SRRPs
 
+conda install -c bioconda hmmer
+conda install -c "bioconda/label/cf201901" hmmer
+
+conda activate SRRPs
+```
+
+b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
+
+```
+-E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
+```
 ```
 
 b) 
@@ -735,6 +747,7 @@ g)
 
 ```
 
+SRRPs similarity network. To evaluate the sequence homology among SRRPs from diverse bacterial genera, a similarity network was constructed. Homologs of SrpA and SrpB were identified using pHMMER v3.3.2 (REF) with the Bacterial Ensembl Genomes Database. All the HMMER hits with a threshold e-value equal to or less than e-20 were selected and its adhesin protein sequence was extracted and used to create a SRRPs database. The SRRPs similarity network was constructed using the EFI-Enzyme similarity tool (REF) with the default parameters. The network was visualized using Citoscape v3.10.1 (REF).
 
 
 
