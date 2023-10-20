@@ -699,7 +699,7 @@ a) Run phmmer online to find Orthologs genes using the Bacterial Ensembl Genomes
 ```
 Please Visit https://www.ebi.ac.uk/Tools/hmmer/search/phmmer
 # Use the Significance E-value -20
-#Download the HMMER hits in fasta format
+# Download the HMMER hits in fasta format
 ```
 
 b) Construct the SRRPs similarity network
