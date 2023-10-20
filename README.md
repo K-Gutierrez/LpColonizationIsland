@@ -693,43 +693,23 @@ please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 
 ## **11. SRRPs similarity network.**
 
-a) Installing HMMER
+
+a) Run phmmer online to find Orthologs genes using the Bacterial Ensembl Genomes Database
 
 ```
-conda create --name SRRPs
-
-conda install -c bioconda hmmer
-conda install -c "bioconda/label/cf201901" hmmer
-
-conda activate SRRPs
+Please Visit https://www.ebi.ac.uk/Tools/hmmer/search/phmmer
+# Use the Significance E-value -20
+#Download the HMMER hits in fasta format
 ```
 
-b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
-
-```
--E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
-```
-
-b) Selection HMMEr hits with e-value less than e-20
-
-```
-
-```
-
-c) Download the HMMER hits from the Bacterial Ensembl Genomes Database
-
-```
-
-```
-
-d) Construct the SRRPs similarity network
+b) Construct the SRRPs similarity network
 
 ```
 EFI-Enzyme similarity tool 
 Please visit https://efi.igb.illinois.edu/efi-est/
 ```
 
-e) Visualize the network using Cytoscape
+c) Visualize the network using Cytoscape
 
 
 
