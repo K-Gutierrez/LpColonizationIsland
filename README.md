@@ -507,7 +507,51 @@ yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open Lp
 
 
 
-## **10. Colonization island in other bacteria.**
+## **10. Transposable elements annotation and classification into families.**
+
+a) Installing Seqkit and Blast, and python 3
+
+```
+conda create --name TEs python=3
+
+conda install -c bioconda blast
+conda install -c "bioconda/label/cf201901" blast
+
+conda install -c bioconda seqkit
+conda install -c "bioconda/label/cf201901" seqkit
+
+conda activate TEs
+```
+
+b) Extracting the TEs amino acid sequences from the fasta file
+
+```
+# Download the TEs database from ISfinder (https://github.com/orangeSi/ISfinder_database)
+
+python3 ISfiner.step1.py  step1
+python3 ISfiner.step2.py step1.IS.ID.list outdir
+rm IS.database.tmp.fa
+find outdir/ -type f -name 'IS*.seq.fa'|xargs -L 1 -I {} cat {} >> IS.database.tmp.fa
+python3 check.empty.py IS.database.tmp.fa IS.database.fa
+
+# create a list of the TEs IDs saved as TEs-IDs.txt and run:
+
+seqkit grep -n -f TEs-IDs.txt ColonizationIsland-LpWF.fasta > TEs.fasta
+
+# Split the multifasta file in several fasta files
+
+cat TEs.fasta | awk '{if (substr($0, 1, 1)==">") { filename=(substr($0,2) ".fasta")} print $0 > filename}'
+```
+
+c) BlastP to annotate the TEs based on homology 
+
+```
+makeblastdb -in ISfinderDB.faa -dbtype prot -out Database.db
+blastp -db Database.db -query TEs_aminoseq.fasta -outfmt 6 -evalue 0.001 -num_threads 16 -max_target_seqs 5 -out TEs_aminoseq.blast
+```
+
+
+## **11. Colonization island in other bacteria.**
 
 a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, quicktree 
 
@@ -691,9 +735,7 @@ g)
 
 ```
 
-## **9. Transposable elements annotation and classification.**
 
-Should we include it? 
 
 
 
