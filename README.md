@@ -691,7 +691,14 @@ The genomic context of the genomic islands was visualized using GeneSpy,
 please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 ```
 
-## **11. SRRPs similarity network.**
+## **11. Co-phylogeny plot.**
+
+```
+Run the script "Co-phylogeny plot" in R
+```
+
+
+## **12. SRRPs similarity network.**
 
 
 a) Run phmmer online to find Orthologs genes using the Bacterial Ensembl Genomes Database
