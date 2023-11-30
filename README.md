@@ -8,6 +8,8 @@ a) Installing trim-galore, Unicycler, and Bbmap
 
 ```
 conda create --name ShortReadsAssembly
+conda activate ShortReadsAssembly
+
 conda install -c bioconda trim-galore
 conda install -c "bioconda/label/cf201901" trim-galore
 
@@ -17,7 +19,6 @@ conda install -c "bioconda/label/cf201901" unicycle
 conda install -c bioconda quast
 conda install -c "bioconda/label/cf201901" quast
 
-conda activate ShortReadsAssembly
 ```
 
 b) Trimming the raw data with Trim-galore
@@ -48,6 +49,8 @@ a) Installing SeqTK toolkit, Flye, Circlator, Ragoo, and Quast
 
 ```
 conda create --name HiFiPacBioassembly
+conda activate HiFiPacBioassembly
+
 conda install -c bioconda seqtk
 conda install -c "bioconda/label/cf201901" seqtk
 
@@ -62,7 +65,6 @@ conda install -c "bioconda/label/cf201901" quast
 
 conda install -c imperial-college-research-computing ragoo
 
-conda activate HiFiPacBioassembly
 ```
 
 b) Random sampling 80,000 HiFi PacBio reads using SeqTK toolkit v1.3
@@ -114,6 +116,7 @@ a) Installing Bowtie2, Samtools, Sambamba, Freebayes, and SnpEff
 
 ```
 conda create --name Indels
+conda activate Indels
 
 conda install -c bioconda bowtie2
 conda install -c "bioconda/label/broken" bowtie2
@@ -125,8 +128,6 @@ conda install -c "bioconda/label/cf201901" samtools
 conda install -c bioconda freebayes
 conda install -c "bioconda/label/broken" freebayes
 conda install -c "bioconda/label/cf201901" freebayes
-
-conda activate Indels
 
 To install Sambamba, visit: https://lomereiter.github.io/sambamba/docs/sambamba-markdup.html
 To install SnpEff, visit http://snpeff.sourceforge.net/SnpEff_manual.html#run
@@ -224,6 +225,7 @@ a) Installing Bowtie2, Bedtools, bbmap, and Picard.
 
 ```
 conda create --name MappingIlluminaReads
+conda activate MappingIlluminaReads
 
 conda install -c bioconda bowtie2
 conda install -c "bioconda/label/broken" bowtie2
@@ -231,8 +233,6 @@ conda install -c "bioconda/label/cf201901" bowtie2
 
 conda install -c bioconda bbmap
 conda install -c "bioconda/label/cf201901" bbmap
-
-conda activate MappingIlluminaReads
 
 To install Bedtools, visit: https://bedtools.readthedocs.io/en/latest/content/installation.html
 To install Picard, visit: https://broadinstitute.github.io/picard/
@@ -331,11 +331,10 @@ a) Installing MrBayes
 
 ```
 conda create --name LpTree
+conda activate LpTree
 
 conda install -c bioconda mrbayes
 conda install -c "bioconda/label/cf201901" mrbayes
-
-conda activate LpTree
 
 ```
 
@@ -374,9 +373,11 @@ a) Using Lp Genome assemblies
 #Installing HMMER
 
 conda create --name LpIsland
+conda activate LpIsland
+
 conda install -c bioconda hmmer
 conda install -c "bioconda/label/cf201901" hmmer
-conda activate LpIsland
+
 
 # Download from RAST the amino acid files for each L. plantarum genome from the Lp.Ids
 
@@ -432,6 +433,8 @@ b) Using raw data obtained from SRA-NCBI
 # Installing the SRA Toolkit, Bowtie2, Trim-galore, Minimap2, and htseq-count
 
 conda create --name SRA-DB
+conda activate SRA-DB
+
 conda install -c bioconda sra-tools
 conda install -c "bioconda/label/cf201901" sra-tools
 
@@ -448,8 +451,6 @@ conda install -c "bioconda/label/cf201901" htseq
 
 conda install -c bioconda minimap2
 conda install -c "bioconda/label/cf201901" minimap2
-
-conda activate SRA-DB
 
 # Download the raw-reads
 
@@ -506,13 +507,13 @@ yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open Lp
 ```
 
 
-
 ## **10. Transposable elements annotation and classification into families.**
 
 a) Installing Seqkit and Blast, and python 3
 
 ```
 conda create --name TEs python=3
+conda activate TEs
 
 conda install -c bioconda blast
 conda install -c "bioconda/label/cf201901" blast
@@ -520,7 +521,6 @@ conda install -c "bioconda/label/cf201901" blast
 conda install -c bioconda seqkit
 conda install -c "bioconda/label/cf201901" seqkit
 
-conda activate TEs
 ```
 
 b) Extracting the TEs amino acid sequences from the fasta file
@@ -557,6 +557,8 @@ a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, and quicktree
 
 ```
 conda create --name aSecTree
+conda activate aSecTree
+
 conda install -c bioconda hmmer
 conda install -c "bioconda/label/cf201901" hmmer
 
@@ -577,7 +579,6 @@ conda install -c "conda-forge/label/gcc7" biopython
 conda install -c bioconda quicktree
 conda install -c "bioconda/label/cf201901" quicktree
 
-conda activate aSecTree
 ```
 
 b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
@@ -661,7 +662,7 @@ gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
 
 k) Constructing the final matrix with the aSec proteins to construct the aSec tree.
 
-```-
+```
 # Extracting the proteins from the asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta, concatenate them in the same order, and get a final fasta file as output
 
 python ExtractOrderSec.py
@@ -693,9 +694,38 @@ please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 
 ## **11. Co-phylogeny plot.**
 
+a) Installing the programs Quicktree, ete3, Muscle, Gblocks, and Gotree
+
 ```
+conda create --name Cophylogeny
+conda activate Cophylogeny
+
+conda install -c bioconda gotree
+
+conda install -c bioconda quicktree
+conda install -c "bioconda/label/cf201901" quicktree
+
+conda install -c conda-forge ete3
+conda install -c "conda-forge/label/cf201901" ete3
+conda install -c "conda-forge/label/cf202003" ete3
+
+conda install -c bioconda muscle
+conda install -c "bioconda/label/cf201901" muscle
+
+conda install -c bioconda gblocks
+conda install -c "bioconda/label/cf201901" gblocks
+
+```
+
+b) Constructing the Core Genome Tree
+
+```
+```
+
+
+
 Run the script "Co-phylogeny plot" in R
-```
+
 
 
 ## **12. SRRPs similarity network.**
