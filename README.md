@@ -649,7 +649,7 @@ python DuplicatesAndMissingIDs.py
 
 seqkit grep -n -f list.txt aSecProteins-outNames.fasta > aSec-Filter.fasta.txt
 
-# Aling the resulting fasta files 
+# Align the resulting fasta files 
 
 for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
 
@@ -717,16 +717,48 @@ conda install -c "bioconda/label/cf201901" gblocks
 
 ```
 
-b) Constructing the Core Genome Tree
+b) Aligning the core proteins
 
 ```
+muscle -in CoreGenome.fasta -out CoreGenome.aln
 ```
 
+c) Getting the consensus blocks 
 
+```
+gblocks CoreGenome.aln -t=d -e=".gb" -b4=5 -b5=a
+```
 
+d) Convert the CoreGenome.aln to Stockholm format
+
+```
+python stochkolm.py
+```
+
+e) Constructing the Core Genome Tree
+
+```
+quicktree -in a -out t -boot 1000 CoreGenome.stockholm > CoreGenome.tree
+```
+
+f) Midpoint root Core Genome tree
+
+```
+python midpoint-root.py CoreGenome.tree > CoreGenome-midpoint.tree
+```
+
+g) Collapsing nodes with support <70 in aSec-midpoint.tree and CoreGenome-midpoint.tree
+
+```
+gotree collapse support -i aSec-midpoint.tree -s 70 -o aSec-midpoint-collapsed.tree
+gotree collapse support -i CoreGenome-midpoint.tree -s 70 -o CoreGenome-midpoint-collapsed.tree
+```
+
+h) Construct the co-phylogeny plot and calculate the ParaFit index
+
+```
 Run the script "Co-phylogeny plot" in R
-
-
+```
 
 ## **12. SRRPs similarity network.**
 
