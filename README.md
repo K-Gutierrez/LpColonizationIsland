@@ -609,14 +609,7 @@ f) Midpoint root Core Genome tree
 python midpoint-root.py CoreGenome.tree > CoreGenome-midpoint.tree
 ```
 
-g) Collapsing nodes with support <70 in aSec-midpoint.tree and CoreGenome-midpoint.tree
-
-```
-gotree collapse support -i aSec-midpoint.tree -s 70 -o aSec-midpoint-collapsed.tree
-gotree collapse support -i CoreGenome-midpoint.tree -s 70 -o CoreGenome-midpoint-collapsed.tree
-```
-
-h) Construct the co-phylogeny plot and calculate the ParaFit index
+g) Construct the co-phylogeny plot and calculate the ParaFit index
 
 ```
 Run the script "Co-phylogeny plot" in R
