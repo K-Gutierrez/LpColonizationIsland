@@ -531,6 +531,16 @@ h) Constructing the aSec tree
 
 python ExtractOrderSec.py
 
+# Align the resulting fasta files 
+
+for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
+
+# Trimming the alignments
+
+gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
+
+- The resulting files are asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta
+
 # Convert the aSec matrix (salida.fasta) to Stockholm format
 
 python stochkolm.py
@@ -543,15 +553,6 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 (http://tree.bio.ed.ac.uk/software/figtree/)
 
-# Align the resulting fasta files 
-
-for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
-
-# Trimming the alignments
-
-gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
-
-- The resulting files are asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta
 ```
 
 ## **11. Co-phylogeny plot.**
@@ -635,11 +636,40 @@ Please visit https://efi.igb.illinois.edu/efi-est/
 
 c) Visualize the network using Cytoscape
 
+## **13. Calculating the coefficient of diffusion.**
 
+1) Installing python
+   
+```
+conda install -c conda-forge biopython
+conda install -c "conda-forge/label/cf201901" biopython
+conda install -c "conda-forge/label/cf202003" biopython
+conda install -c "conda-forge/label/gcc7" biopython
+```
 
+1) Sub-sampling 100 tracks and making a rose plot.
 
+```
+python subsample_displacements.py
 
+Output: *.csv-roseplot file with the displacements information
+```
 
+2) For processing one *.csv file without subsampling and making a rose plot. 
+
+```
+python displacements_roseplot.py
+
+Output: *.csv-roseplot file with the displacements 
+```
+
+3) To calculate the coefficient of diffusion and make a histogram. 
+
+```
+python *.csv-roseplot calculate_difussion.py
+
+Output: *.csv-coefficientDiffusion, histogram, and mean-squared displacement per Tau. 
+```
 
 
 
