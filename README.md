@@ -489,7 +489,7 @@ p3-submit-BLAST \
 
 ```
 
-c) Select the best hit per genera: Lower number of contigs, bigger genome size
+c) Select the best hit per genera: Lower number of contigs and bigger genome size.
 
 ```
 python SelectOneHit-loop.py
@@ -497,7 +497,19 @@ python SelectOneHit-loop.py
 
 d) Annotate the selected bacterial genomes using RAST and download them in *.faa
 
-e) Create a genome assemblies database and run HMMER against SecA2 and SecY2 proteins from LpWF 
+e) Extract 50 Kbp downstream and upstream from the GftA hit
+
+```
+You will need:
+
+1. LocationTableHits.txt file located outside the folder input
+2. Genome assemblies in fasta file located within a folder called "input"
+3. Script ExtractSequence50000.py located outside the folder input
+
+python ExtractSequence50000.py
+```
+
+f) Create a genome assemblies database and run HMMER against SecA2 and SecY2 proteins from LpWF
 
 ```
 cat *.faa > all_SelectedGenomes.faa
@@ -505,74 +517,20 @@ cat *.faa > all_SelectedGenomes.faa
 ./phmmer --tblout HMMER-SelectedGenomes-SrpB.txt SrpB.fasta all_SelectedGenomes.faa
 ```
 
-f) Keep only the column 1 (RAST-IDs)
+g) Visualizing the genomic islands 
 
 ```
-$cut -f 1 HMMER-SelectedGenomes-SrpA.txt > SrpA-Ids
-$cut -f 1 HMMER-SelectedGenomes-SrpY.txt > SrpY-Ids
+The genomic context of the genomic islands was visualized using GeneSpy,
+please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
 ```
 
-g) Extract ~100 proteins upstream and downstream from the HMMER hit
+h) Constructing the aSec tree
 
 ```
-./Extract100Seq.sh
-
-The output file "results.txt" will be used to find the aSec proteins using BlastP
-```
-
-h) Finding Homologous aSec proteins using BlastP
-
-```
-# Make a blast database
-
-perl BlastFormat.pl
-
-# Run BlastP using the aSec proteins as query from LpWF (Asp1.fasta, Asp2.fasta, Asp3.fasta, SecY2.fasta, SecA2.fasta, GftA.fasta, and GftB.fasta)
-
-for i in $(ls *.fasta); do perl BlastP.pl $i $i.txt 0.000001 100;done
-
-# Change the name of the headers for the RAST-Names, using the RAST.Ids file.
-
-perl RASTID_Names.pl aSecProteins-out.faa > aSecProteins-outNames.fasta
-```
-
-j) Checking if there are duplicate hits or missing hits for each aSec protein
-
-```
-# Create a DocumentA.txt with the RAST.Ids (First column)
-
-cut -f 1 RAST.Ids > DocumentA.txt
-
-# Create a document with a list of missing IDs and duplicate IDs for each Blast-output file (i.e., aSecProteins-outNames.fasta)
-
-python DuplicatesAndMissingIDs.py
-
-# Remove the genomes that do not have a complete aSec protein from all fasta files, creating a list from the Selected Genomes with all the aSec proteins ==> list.txt
-
-seqkit grep -n -f list.txt aSecProteins-outNames.fasta > aSec-Filter.fasta.txt
-
-# Align the resulting fasta files 
-
-for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
-
-# Trimming the alignments
-
-gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
-
-- The resulting files are asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta
-```
-
-k) Constructing the final matrix with the aSec proteins to construct the aSec tree.
-
-```
-# Extracting the proteins from the asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta, concatenate them in the same order, and get a final fasta file as output
+# Extracting the aSec proteins from the fasta files , concatenate them in the same order, and get a final fasta file as output
 
 python ExtractOrderSec.py
-```
 
-l) Constructing the aSec tree
-
-```
 # Convert the aSec matrix (salida.fasta) to Stockholm format
 
 python stochkolm.py
@@ -585,13 +543,15 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 (http://tree.bio.ed.ac.uk/software/figtree/)
 
-```
+# Align the resulting fasta files 
 
-m) Visualizing the genomic islands 
+for i in $(ls *.fasta.txt); do muscle -in $i -out $i.aln;done
 
-```
-The genomic context of the genomic islands was visualized using GeneSpy,
-please visit: https://lbbe-dmz.univ-lyon1.fr/GeneSpy/
+# Trimming the alignments
+
+gblocks /path/to/input.fasta -t=d -e=".gb" -b4=5 -b5=a
+
+- The resulting files are asp1-gb.fasta, asp2-gb.fasta, asp3-gb.fasta, gftA-gb.fasta, gftB-gb.fasta, secA2-gb.fasta, secY2-gb.fasta
 ```
 
 ## **11. Co-phylogeny plot.**
