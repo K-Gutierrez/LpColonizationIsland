@@ -460,9 +460,6 @@ conda activate aSecTree
 conda install -c bioconda hmmer
 conda install -c "bioconda/label/cf201901" hmmer
 
-conda install -c bioconda blast
-conda install -c "bioconda/label/cf201901" blast
-
 conda install -c bioconda muscle
 conda install -c "bioconda/label/cf201901" muscle
 
@@ -479,7 +476,7 @@ conda install -c "bioconda/label/cf201901" quicktree
 
 ```
 
-b) BlastP using the aSec proteins from LpWF and PATRIC database.
+b) Using the BlastP function in PATRIC, to find homologous aSec proteins: SecA2, SecY2, GtfA, GftB, Asp1, Asp2, and Asp3 from LpWF.
 
 ```
 p3-submit-BLAST \
@@ -492,10 +489,10 @@ p3-submit-BLAST \
 
 ```
 
-c) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20 and one genome per bacterial genera)
+c) Select the best hit per genera: Lower number of contigs, bigger genome size
 
 ```
-Please visit: https://bacteria.ensembl.org/info/data/ftp/index.html
+python SelectOneHit-loop.py
 ```
 
 d) Annotate the selected bacterial genomes using RAST and download them in *.faa
