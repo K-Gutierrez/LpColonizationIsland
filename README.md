@@ -324,110 +324,9 @@ samtools view -S -b ShortReadsAln-100x-LinearContig.sam > ShortReadsAln-100x-Lin
 samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-LinearContig.bam
 ```
 
-
-## **8. *L. plantarum* phylogenetic tree.**
-
-a) Installing MrBayes
-
-```
-conda create --name LpTree
-conda activate LpTree
-
-conda install -c bioconda mrbayes
-conda install -c "bioconda/label/cf201901" mrbayes
-
-```
-
-b) High throughput RAST annotation and calculating the core proteome
-
-```
-# Please visit: 
-Gutiérrez-García, Karina, et al. "Cycad coralloid roots contain bacterial communities including cyanobacteria and Caulobacter spp. that encode niche-specific biosynthetic gene clusters." Genome Biology and Evolution 11.1 (2019): 319-334.
-
-# Use the Lp.Ids file to obtain the core proteome
-```
-
-c) Constructing the L. plantarum phylogenetic tree
-
-```
-#Convert the LpCoreProteome.fasta in nexus format
-
-Please visit https://doua.prabi.fr/software/seaview
-
-# Add the MrBayes.fa script at the end of the file LpCoreProteome-nexus.nxs
-
-# Run MrBayes
-nohup My/path/mrbayes/MrBayes/src/mb -i LpCoreProteome-nexus.nxs > LpCoreProteome-nexus.log&
-
-# Visualize the Lp tree using Iroki
-
-Please visit: https://www.iroki.net/viewer
-```
-
-
 ## **8. Genome mining for colonization islands in *L. plantarum* genomes.**
 
-a) Using Lp Genome assemblies 
-
-```
-#Installing HMMER
-
-conda create --name LpIsland
-conda activate LpIsland
-
-conda install -c bioconda hmmer
-conda install -c "bioconda/label/cf201901" hmmer
-
-
-# Download from RAST the amino acid files for each L. plantarum genome from the Lp.Ids
-
-# Create an Lp database
-
-cat *.faa > all_Lpgenomes_prot.faa
-formatdb -i all_genomes_prot.faa -p T -V
-
-# Get all the queries from the colonization island from LpWF
-
-awk '/^>/ {OUT=substr($0,2) ".fasta"}; {print >> OUT; close(OUT)}' ColonizationIslandLpWF.fasta
-
-# Run HMMER
-
-./runHMMER.sh
-
-# Keep only the first and third column
-
-cut -f 1,3 HMMER.out > HMMER-1-3.txt
-
-# Ordering the HMMER-1-3.txt table from ascending to descending
-
-python OrderHMMERTable.py
-
-# Select the lowest e-value per hit
-
-perl HMMER-Evalue.pl
-
-# Adding missing Lp genomes (Genomes that did not have any HMMER- hits) to the file out-HMMER-1-3.order.txt based on the Lp-DB
-
-bash CompletingLpDB.sh
-
-The input files are:
-	- Order_LpTree.txt
-	- out-HMMER-1-3.order.txt
-
-# Fill empty spaces in the second column with 100
-
-python Adding100.py
-
-# Ordering the table final.results100.txt according to the Lp Tree
-
-./LpTree-Final.sh
-
-The input files are:
-	- Order_LpTree.txt
-	- final.results100.txt
-```
-
-b) Using raw data obtained from SRA-NCBI
+a) Using raw data obtained from SRA-NCBI
 
 ```
 # Installing the SRA Toolkit, Bowtie2, Trim-galore, Minimap2, and htseq-count
@@ -488,7 +387,6 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 
 ./ReadCount.sh
 ```
-
 
 
 ## **9. Prediction of the recombination sites.**
