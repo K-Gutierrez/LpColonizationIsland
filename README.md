@@ -479,10 +479,17 @@ conda install -c "bioconda/label/cf201901" quicktree
 
 ```
 
-b) phmmer to find Orthologs genes using the Bacterial Ensembl Genomes Database
+b) BlastP using the aSec proteins from LpWF and PATRIC database.
 
 ```
--E 0.0000000001 --domE 0.003 --incE 0.0000000001 --incdomE 0.003 --mx BLOSUM62 --pextend 0.4 --popen 0.02 --seqdb ensemblgenomes
+p3-submit-BLAST \
+--max-hits 100000 \
+--in-fasta-file aSecLpWF \
+--evalue-cutoff 1e-20 \
+--workspace-upload-path /userPATRIC@patricbrc.org/home/test \
+--db-database BV-BRC \
+/userPATRIC@patricbrc.org/home/test test
+
 ```
 
 c) Download the bacterial genomes with HMMER-hits (threshold e-value equal to or less than e-20 and one genome per bacterial genera)
