@@ -1,0 +1,83 @@
+##gff-version 3
+contig_2	FIG	CDS	636	845	.	-	0	ID=fig|6666666.973452.peg.1;Name=hypothetical protein
+contig_2	FIG	CDS	954	1250	.	-	0	ID=fig|6666666.973452.peg.2;Name=Mobile element protein
+contig_2	FIG	CDS	1418	1741	.	-	2	ID=fig|6666666.973452.peg.3;Name=Mobile element protein
+contig_2	FIG	CDS	2130	3071	.	-	0	ID=fig|6666666.973452.peg.4;Name=hypothetical protein
+contig_2	FIG	CDS	3052	3261	.	-	1	ID=fig|6666666.973452.peg.5;Name=hypothetical protein
+contig_2	FIG	CDS	3267	3404	.	-	0	ID=fig|6666666.973452.peg.6;Name=hypothetical protein
+contig_2	FIG	CDS	3775	4218	.	-	1	ID=fig|6666666.973452.peg.7;Name=hypothetical protein
+contig_2	FIG	CDS	4205	4612	.	-	2	ID=fig|6666666.973452.peg.8;Name=hypothetical protein
+contig_2	FIG	CDS	4639	4890	.	-	1	ID=fig|6666666.973452.peg.9;Name=hypothetical protein
+contig_2	FIG	CDS	5008	5661	.	-	1	ID=fig|6666666.973452.peg.10;Name=hypothetical protein
+contig_2	FIG	CDS	5965	6126	.	-	1	ID=fig|6666666.973452.peg.11;Name=hypothetical protein
+contig_2	FIG	CDS	6241	6549	.	-	1	ID=fig|6666666.973452.peg.12;Name=hypothetical protein
+contig_2	FIG	CDS	6778	7149	.	-	1	ID=fig|6666666.973452.peg.13;Name=hypothetical protein
+contig_2	FIG	CDS	7571	7945	.	-	2	ID=fig|6666666.973452.peg.14;Name=PemK family protein
+contig_2	FIG	CDS	7942	8196	.	-	1	ID=fig|6666666.973452.peg.15;Name=hypothetical protein
+contig_2	FIG	CDS	8414	8716	.	-	2	ID=fig|6666666.973452.peg.16;Name=Divinyl protochlorophyllide a 8-vinyl-reductase (EC 1.3.1.75);Ontology_term=KEGG_ENZYME:1.3.1.75
+contig_2	FIG	CDS	8706	8984	.	-	0	ID=fig|6666666.973452.peg.17;Name=hypothetical protein
+contig_2	FIG	CDS	9130	9360	.	-	1	ID=fig|6666666.973452.peg.18;Name=hypothetical protein
+contig_2	FIG	CDS	9381	9866	.	-	0	ID=fig|6666666.973452.peg.19;Name=hypothetical protein
+contig_2	FIG	CDS	11016	11159	.	-	0	ID=fig|6666666.973452.peg.20;Name=Mobile element protein
+contig_2	FIG	CDS	11214	11360	.	-	0	ID=fig|6666666.973452.peg.21;Name=Mobile element protein
+contig_2	FIG	CDS	11658	11918	.	+	0	ID=fig|6666666.973452.peg.22;Name=Mobile element protein
+contig_2	FIG	CDS	12049	12195	.	+	1	ID=fig|6666666.973452.peg.23;Name=Mobile element protein
+contig_2	FIG	CDS	12240	12509	.	-	0	ID=fig|6666666.973452.peg.24;Name=hypothetical protein
+contig_2	FIG	CDS	12610	12720	.	-	1	ID=fig|6666666.973452.peg.25;Name=hypothetical protein
+contig_2	FIG	CDS	12858	12980	.	-	0	ID=fig|6666666.973452.peg.26;Name=hypothetical protein
+contig_2	FIG	CDS	13068	13328	.	-	0	ID=fig|6666666.973452.peg.27;Name=hypothetical protein
+contig_2	FIG	CDS	13513	13668	.	+	1	ID=fig|6666666.973452.peg.28;Name=Mobile element protein
+contig_2	FIG	CDS	13774	14319	.	+	1	ID=fig|6666666.973452.peg.29;Name=Mobile element protein
+contig_2	FIG	CDS	14295	15950	.	-	0	ID=fig|6666666.973452.peg.30;Name=Transposase%2C IS4 family
+contig_2	FIG	CDS	16392	16694	.	-	0	ID=fig|6666666.973452.peg.31;Name=Mobile element protein
+contig_2	FIG	CDS	16843	17772	.	+	1	ID=fig|6666666.973452.peg.32;Name=Mobile element protein
+contig_2	FIG	CDS	18004	18495	.	-	1	ID=fig|6666666.973452.peg.33;Name=Teichoic acid glycosylation protein
+contig_2	FIG	CDS	18680	18868	.	-	2	ID=fig|6666666.973452.peg.34;Name=hypothetical protein
+contig_2	FIG	CDS	19000	19305	.	-	1	ID=fig|6666666.973452.peg.35;Name=Mobile element protein
+contig_2	FIG	CDS	19346	19906	.	-	2	ID=fig|6666666.973452.peg.36;Name=Mobile element protein
+contig_2	FIG	CDS	20084	20212	.	-	2	ID=fig|6666666.973452.peg.37;Name=oxidoreductase%2C Gfo/Idh/MocA family
+contig_2	FIG	CDS	20303	20548	.	-	2	ID=fig|6666666.973452.peg.38;Name=Oxidoreductase%2C Gfo/Idh/MocA family
+contig_2	FIG	CDS	20505	21101	.	-	0	ID=fig|6666666.973452.peg.39;Name=Oxidoreductase%2C Gfo/Idh/MocA family
+contig_2	FIG	CDS	21525	22394	.	-	0	ID=fig|6666666.973452.peg.40;Name=COG0442: Prolyl-tRNA synthetase
+contig_2	FIG	CDS	22384	23826	.	-	1	ID=fig|6666666.973452.peg.41;Name=Poly(glycerol-phosphate) alpha-glucosyltransferase GftA (EC 2.4.1.52);Ontology_term=KEGG_ENZYME:2.4.1.52; GftA
+contig_2	FIG	CDS	23829	24746	.	-	0	ID=fig|6666666.973452.peg.42;Name=hypothetical protein; Asp3
+contig_2	FIG	CDS	24718	26292	.	-	1	ID=fig|6666666.973452.peg.43;Name=Accessory secretory protein Asp2
+contig_2	FIG	CDS	26293	27852	.	-	1	ID=fig|6666666.973452.peg.44;Name=hypothetical protein; Asp1
+contig_2	FIG	CDS	28202	28456	.	-	2	ID=fig|6666666.973452.peg.45;Name=Mobile element protein
+contig_2	FIG	CDS	29112	30173	.	-	0	ID=fig|6666666.973452.peg.46;Name=hypothetical protein; SecY2
+contig_2	FIG	CDS	30383	32749	.	-	2	ID=fig|6666666.973452.peg.47;Name=Protein translocase subunit SecA; SecA2
+contig_2	FIG	CDS	33406	33501	.	+	1	ID=fig|6666666.973452.peg.48;Name=hypothetical protein
+contig_2	FIG	CDS	33589	33687	.	+	1	ID=fig|6666666.973452.peg.49;Name=hypothetical protein
+contig_2	FIG	CDS	34024	34905	.	-	1	ID=fig|6666666.973452.peg.50;Name=hypothetical protein; gly2
+contig_2	FIG	CDS	35886	36887	.	-	0	ID=fig|6666666.973452.peg.51;Name=Nucleotide sugar synthetase-like protein; gly1
+contig_2	FIG	CDS	37255	38196	.	-	1	ID=fig|6666666.973452.peg.52;Name=hypothetical protein
+contig_2	FIG	CDS	38193	38384	.	-	0	ID=fig|6666666.973452.peg.53;Name=hypothetical protein
+contig_2	FIG	CDS	38689	40092	.	-	1	ID=fig|6666666.973452.peg.54;Name=hypothetical protein
+contig_2	FIG	CDS	41566	41862	.	-	1	ID=fig|6666666.973452.peg.55;Name=Mobile element protein
+contig_2	FIG	CDS	42027	42218	.	-	0	ID=fig|6666666.973452.peg.56;Name=Mobile element protein
+contig_2	FIG	CDS	42273	43133	.	+	0	ID=fig|6666666.973452.peg.57;Name=Mobile element protein
+contig_2	FIG	CDS	43130	43450	.	-	2	ID=fig|6666666.973452.peg.58;Name=Mobile element protein
+contig_2	FIG	CDS	43567	44100	.	+	1	ID=fig|6666666.973452.peg.59;Name=Mobile element protein
+contig_2	FIG	CDS	44511	45080	.	+	0	ID=fig|6666666.973452.peg.60;Name=Mobile element protein
+contig_2	FIG	CDS	45121	45426	.	+	1	ID=fig|6666666.973452.peg.61;Name=Mobile element protein
+contig_2	FIG	CDS	45436	45747	.	+	1	ID=fig|6666666.973452.peg.62;Name=hypothetical protein
+contig_2	FIG	CDS	45900	46706	.	+	0	ID=fig|6666666.973452.peg.63;Name=putative plasmid partition protein
+contig_2	FIG	CDS	46720	46968	.	+	1	ID=fig|6666666.973452.peg.64;Name=hypothetical protein
+contig_2	FIG	CDS	47159	48466	.	+	2	ID=fig|6666666.973452.peg.65;Name=Mobile element protein
+contig_2	FIG	CDS	48650	63055	.	-	2	ID=fig|6666666.973452.peg.66;Name=Predicted cell-wall-anchored protein SasA (LPXTG motif); SrpB
+contig_2	FIG	CDS	63179	63358	.	-	2	ID=fig|6666666.973452.peg.67;Name=Mobile element protein
+contig_2	FIG	CDS	63657	64517	.	+	0	ID=fig|6666666.973452.peg.68;Name=Mobile element protein
+contig_2	FIG	CDS	64602	65999	.	+	0	ID=fig|6666666.973452.peg.69;Name=Glutamate decarboxylase (EC 4.1.1.15);Ontology_term=KEGG_ENZYME:4.1.1.15
+contig_2	FIG	CDS	66024	67076	.	+	0	ID=fig|6666666.973452.peg.70;Name=Choloylglycine hydrolase (EC 3.5.1.24);Ontology_term=KEGG_ENZYME:3.5.1.24
+contig_2	FIG	CDS	67347	68276	.	+	0	ID=fig|6666666.973452.peg.71;Name=Mobile element protein
+contig_2	FIG	CDS	68347	68817	.	-	1	ID=fig|6666666.973452.peg.72;Name=hypothetical protein
+contig_2	FIG	CDS	69800	70048	.	-	2	ID=fig|6666666.973452.peg.73;Name=hypothetical protein
+contig_2	FIG	CDS	70062	70868	.	-	0	ID=fig|6666666.973452.peg.74;Name=putative plasmid partition protein
+contig_2	FIG	CDS	71021	71332	.	-	2	ID=fig|6666666.973452.peg.75;Name=hypothetical protein
+contig_2	FIG	CDS	71426	71677	.	+	2	ID=fig|6666666.973452.peg.76;Name=Mobile element protein
+contig_2	FIG	CDS	71770	72261	.	+	1	ID=fig|6666666.973452.peg.77;Name=Mobile element protein
+contig_2	FIG	CDS	72639	80780	.	-	0	ID=fig|6666666.973452.peg.78;Name=Predicted cell-wall-anchored protein SasA (LPXTG motif); SrpA
+contig_2	FIG	CDS	80997	81590	.	-	0	ID=fig|6666666.973452.peg.79;Name=Mobile element protein
+contig_2	FIG	CDS	81652	82581	.	-	1	ID=fig|6666666.973452.peg.80;Name=Mobile element protein
+contig_2	FIG	CDS	82623	82973	.	-	0	ID=fig|6666666.973452.peg.81;Name=Mobile element protein
+contig_2	FIG	CDS	83356  	83448	.	+	1	ID=fig|6666666.973452.peg.82;Name=hypothetical protein

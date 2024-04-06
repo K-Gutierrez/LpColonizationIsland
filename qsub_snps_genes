@@ -6,7 +6,7 @@
 #$ -r y 
 #$ -j y 
 #$ -l highp 
-#$ -l h_data=5G 
+#$ -l h_data=15G 
 #$ -l time=23:00:00 
 #$ -t 1-22
 
@@ -14,18 +14,18 @@
 
 module load singularity
 
-export MIDAS_DB=/u/scratch/r/rwolff/Evolution_Experiment/midas_db/Lactobacillus
+export MIDAS_DB=/u/project/ngarud/rwolff/Evolution_Experiment/midas_db/Lactobacillus
 
 readarray accs < acc_list.csv
 accs=(null ${accs[@]}) 
 acc=${accs[$SGE_TASK_ID]}
 echo $acc
 
-FASTQDIR=/u/scratch/r/rwolff/Evolution_Experiment/Raw_data/Illumina-ShortReads
+FASTQDIR=/u/project/ngarud/Garud_lab/metagenomic_fastq_files/Evolution_Experiment/Raw_data/Illumina-ShortReads/
 fastq1=${FASTQDIR}/${acc}_R1_val_1.fq
 fastq2=${FASTQDIR}/${acc}_R2_val_2.fq
 
-OUTDIR=/u/scratch/r/rwolff/Evolution_Experiment/midas_output/midas_files/${acc}
+OUTDIR=/u/project/ngarud/rwolff/Evolution_Experiment/midas_output/midas_files/${acc}
 mkdir -p $OUTDIR
 
 singularity exec $H2_CONTAINER_LOC/MIDAS-1.3.2.sif run_midas.py genes $OUTDIR -1 $fastq1 -2 $fastq2 --species_id Lactobacillus --remove_temp
