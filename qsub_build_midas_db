@@ -1,0 +1,9 @@
+#!/bin/bash
+#$ -e /u/home/r/rwolff/Evolution_Experiment_scripts/qsub_output/build_midas_err.txt
+#$ -o /u/home/r/rwolff/Evolution_Experiment_scripts/qsub_output/build_midas_out.txt
+#$ -cwd
+#$ -l h_data=15G
+#$ -l time=23:00:00
+#$ -m bea
+
+./build_midas_db.sh 

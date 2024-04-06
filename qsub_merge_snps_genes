@@ -1,0 +1,31 @@
+#!/bin/bash
+#$ -N merge_MIDAS_snps_genes_Evolution
+#$ -e /u/home/r/rwolff/Evolution_Experiment_scripts/qsub_output
+#$ -o /u/home/r/rwolff/Evolution_Experiment_scripts/qsub_output
+#$ -cwd
+#$ -r y
+#$ -j y
+#$ -l highp
+#$ -l h_data=10G
+#$ -l time=23:00:00
+
+. /u/local/Modules/default/init/modules.sh
+
+module load singularity
+
+export MIDAS_DB=/u/project/ngarud/rwolff/Evolution_Experiment/midas_db/Lactobacillus
+
+OUTDIR=/u/project/ngarud/rwolff/Evolution_Experiment/midas_output/merged_midas_output/
+
+mkdir -p $OUTDIR/snps
+mkdir -p $OUTDIR/genes
+
+singularity exec $H2_CONTAINER_LOC/MIDAS-1.3.2.sif merge_midas.py snps $OUTDIR/snps -i /u/project/ngarud/rwolff/Evolution_Experiment/midas_output/midas_files/ -t dir --sample_depth 5 --site_depth 3 --min_samples 1 --site_prev 0.0 --threads 10 > $OUTDIR/snps/species.log
+
+singularity exec $H2_CONTAINER_LOC/MIDAS-1.3.2.sif merge_midas.py genes $OUTDIR/genes -i /u/project/ngarud/rwolff/Evolution_Experiment/midas_output/midas_files/ -t dir --sample_depth 5 --min_samples 1  --cluster_pid 95 > $OUTDIR/genes/species.log
+
+
+
+
+
+
