@@ -278,15 +278,15 @@ java -jar picard.jar CollectAlignmentSummaryMetrics \
 ```
 
 
-## **7. mkmkm.**
+## **7. Detecting the loss of the colonization island over time.**
 
 Scripts written by Richard Wolff to 
-* align reads to WF parent using MIDAS
-* perform evolutionary analyses
+* Align reads to LpWF parent using MIDAS
+* Perform evolutionary analyses
 
 These scripts were run on UCLA's Hoffman2 computing cluster, using Hoffman2's MIDAS-1.3.2 docker image. 
 
-Raw data and annotations furnished by Karina Garcia:
+Raw data and annotations furnished by Karina Gutierrez Garcia:
 
     1) Raw data (Nextseq 2x75) of 12 evolved replicates
     2) Raw data (Nextseq 2X75) for 8 evolved passages
@@ -299,30 +299,29 @@ The hybrid assembly of the ancestral strain (3) was used as the reference genome
 Documentation:
 
 ```
-############################################################
-Step 1: creating MIDAS database and necessary metadata files
-############################################################
+
+# Step 1: Creating MIDAS database and necessary metadata files
+
 python create_acc_file.py
 python convert_gff_to_genes.py
 qsub qsub_build_midas_db
 
-############################################################################################################
-Step 2: Aligning (Illumina short-) reads to reference assembly, comparing SNV and CNV content across samples
-############################################################################################################
+
+# Step 2: Aligning (Illumina short-) reads to reference assembly, comparing SNV and CNV content across samples
+
 qsub qsub_snps_genes
 qsub qsub_merge_snps_genes
 
-##################################
-Step3: create html output document
-##################################
+
+# Step3: create html output document
+
 jupyter nbconvert --to html --template hidecode snv_gene_trajectories.ipynb
 
+Note*: When performing the inter-sample merge, genes were clustered at the 99% sequence identity threshold (using the ```--cluster_pid 99``` in the ```merge_midas.py genes``` command of the ```qsub_merge_snps_genes``` script), rather than the default 95%. As in each replicate we are dealing with a simple, single lineage population, this decision was made so that the dynamics of even closely related genes could more easily be discriminated.  
 ```
 
-Note*: When performing the inter-sample merge, genes were clustered at the 99% sequence identity threshold (using the ```--cluster_pid 99``` in the ```merge_midas.py genes``` command of the ```qsub_merge_snps_genes``` script), rather than the default 95%. As in each replicate we are dealing with a simple, single lineage population, this decision was made so that the dynamics of even closely related genes could more easily be discriminated.  
 
-
-## **7. *In silico* detection of circular and linear contigs.**
+## **8. *In silico* detection of circular and linear contigs.**
 
 a) Split the genome assembly into single contigs 
 
@@ -366,7 +365,7 @@ samtools view -S -b ShortReadsAln-100x-LinearContig.sam > ShortReadsAln-100x-Lin
 samtools sort ShortReadsAln-100x-LinearContig.bam ShortReadsAln-sorted-100x-LinearContig.bam
 ```
 
-## **8. Genome mining for colonization islands in *L. plantarum* genomes.**
+## **9. Genome mining for colonization islands in *L. plantarum* genomes.**
 
 a) Using raw data obtained from SRA-NCBI
 
@@ -431,7 +430,7 @@ bowtie2-build -f ColonizationIsland-LpWF-Masked.fasta dbname
 ```
 
 
-## **9. Prediction of the recombination sites.**
+## **10. Prediction of the recombination sites.**
 
 a) Installing Yass program, a genomic similarity search tool
 
@@ -447,7 +446,7 @@ yass2dotplot.php       LpIsland-output.yop  filename1=""  filename2="" ; open Lp
 ```
 
 
-## **10. Transposable elements annotation and classification into families.**
+## **11. Transposable elements annotation and classification into families.**
 
 a) Installing Seqkit and Blast, and python 3
 
@@ -491,7 +490,7 @@ blastp -db Database.db -query TEs_aminoseq.fasta -outfmt 6 -evalue 0.001 -num_th
 ```
 
 
-## **11. Colonization island in other bacteria genera.**
+## **12. Colonization island in other bacteria genera.**
 
 a) Installing HMMER, BLAST, Muscle, Gblocks, biopython, and quicktree 
 
@@ -597,7 +596,7 @@ quicktree -in a -out t -boot 1000 aSec.stockholm > aSec.tree
 
 ```
 
-## **11. Co-phylogeny plot.**
+## **13. Co-phylogeny plot.**
 
 a) Installing the programs Quicktree, ete3, Muscle, Gblocks, and Gotree
 
@@ -658,7 +657,7 @@ g) Construct the co-phylogeny plot and calculate the ParaFit index
 Run the script "Co-phylogeny plot" in R
 ```
 
-## **12. SRRPs similarity network.**
+## **14. SRRPs similarity network.**
 
 
 a) Run phmmer online to find Orthologs genes using the Bacterial Ensembl Genomes Database
@@ -678,7 +677,7 @@ Please visit https://efi.igb.illinois.edu/efi-est/
 
 c) Visualize the network using Cytoscape
 
-## **13. Calculating the coefficient of diffusion.**
+## **15. Calculating the coefficient of diffusion.**
 
 1) Installing python
    
