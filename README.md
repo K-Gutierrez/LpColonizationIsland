@@ -317,7 +317,7 @@ qsub qsub_merge_snps_genes
 
 jupyter nbconvert --to html --template hidecode snv_gene_trajectories.ipynb
 
-Note*: When performing the inter-sample merge, genes were clustered at the 99% sequence identity threshold (using the ```--cluster_pid 99``` in the ```merge_midas.py genes``` command of the ```qsub_merge_snps_genes``` script), rather than the default 95%. As in each replicate we are dealing with a simple, single lineage population, this decision was made so that the dynamics of even closely related genes could more easily be discriminated.  
+Note*: When performing the inter-sample merge, genes were clustered at the 99% sequence identity threshold (using the --cluster_pid 99 in the merge_midas.py genes command of the qsub_merge_snps_genes script), rather than the default 95%. As in each replicate we are dealing with a simple, single lineage population, this decision was made so that the dynamics of even closely related genes could more easily be discriminated.  
 ```
 
 
