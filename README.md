@@ -657,8 +657,41 @@ g) Construct the co-phylogeny plot and calculate the ParaFit index
 ```
 Run the script "Co-phylogeny plot" in R
 ```
+## **15. GC content calculation.**
 
-## **14. SRRPs similarity network.**
+1) Installing python, Samtools
+   
+```
+conda create --name GC-content
+conda activate GC-content
+
+
+conda install -c conda-forge biopython
+conda install -c "conda-forge/label/cf201901" biopython
+conda install -c "conda-forge/label/cf202003" biopython
+conda install -c "conda-forge/label/gcc7" biopython
+
+conda install -c bioconda samtools
+
+conda install -c bioconda bedtools
+
+```
+
+2) Extracting the colonization island region from the genome assemblies 
+
+```
+samtools faidx assembly.fna ContigID:Start-End > out-island.fna 
+```
+
+3) 
+
+```
+samtools faidx assembly.fna ContigID:Start-End > out-island.fna 
+```
+
+
+
+## **16. SRRPs similarity network.**
 
 
 a) Run phmmer online to find Orthologs genes using the Bacterial Ensembl Genomes Database
@@ -678,7 +711,7 @@ Please visit https://efi.igb.illinois.edu/efi-est/
 
 c) Visualize the network using Cytoscape
 
-## **15. Calculating the coefficient of diffusion.**
+## **17. Calculating the coefficient of diffusion.**
 
 1) Installing python
    
