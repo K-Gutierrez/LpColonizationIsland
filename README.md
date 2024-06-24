@@ -657,6 +657,8 @@ g) Construct the co-phylogeny plot and calculate the ParaFit index
 ```
 Run the script "Co-phylogeny plot" in R
 ```
+
+
 ## **15. GC content calculation.**
 
 1) Installing python, Samtools
@@ -683,13 +685,19 @@ conda install -c bioconda bedtools
 samtools faidx assembly.fna ContigID:Start-End > out-island.fna 
 ```
 
-3) 
+3) Mask the colonization island region within the genome assemblies 
 
 ```
-samtools faidx assembly.fna ContigID:Start-End > out-island.fna 
+bedtools maskfasta -fi <input FASTA> -bed <BED file> -fo <output FASTA>
+
 ```
 
+4) GC cuantification
 
+```
+python GC-content.py
+
+```
 
 ## **16. SRRPs similarity network.**
 
