@@ -695,8 +695,9 @@ bedtools maskfasta -fi <input FASTA> -bed <BED file> -fo <output FASTA>
 4) GC cuantification
 
 ```
-python GC-content.py
+python GC-calculator.py
 
+Note: Generate a txt file as an output. 
 ```
 
 ## **16. SRRPs similarity network.**
