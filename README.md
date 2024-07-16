@@ -692,7 +692,7 @@ bedtools maskfasta -fi <input FASTA> -bed <BED file> -fo <output FASTA>
 
 ```
 
-4) GC cuantification
+4) GC quantification
 
 ```
 python GC-calculator.py
@@ -700,6 +700,11 @@ python GC-calculator.py
 Note: Generate a txt file as an output. 
 ```
 
+5) Brunner-Munzel Test
+
+```
+Run the Brunner-Munzel Test.R script
+```
 ## **16. SRRPs similarity network.**
 
 
